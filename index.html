@@ -3,403 +3,146 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arthur Valente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #f4f3f0; --ink: #1a1a1a; --muted: #888; --font: 'Jost','Futura','Century Gothic',sans-serif; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--font); font-weight: 400; min-height: 100vh; overflow-x: hidden; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; padding: 28px 40px;
-      background: var(--bg);
-    }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a { font-size: 14px; font-weight: 400; letter-spacing: 0.06em; text-decoration: none; color: var(--ink); transition: opacity 0.2s; }
-    .nav-links a:hover, .nav-links a.active { opacity: 0.45; }
-    .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); font-size: 15px; font-weight: 400; letter-spacing: 0.28em; text-decoration: none; color: var(--ink); white-space: nowrap; }
-
-    main { padding-top: 110px; padding-bottom: 160px; }
-
-    .columns-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 20px;
-      padding: 0 280px;
-      align-items: start;
-    }
-
-    .col { display: flex; flex-direction: column; gap: 72px; }
-    .col-left  { padding-top: 0; }
-    .col-right { padding-top: 80px; }
-
-    .project { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease; }
-    .project.visible { opacity: 1; transform: translateY(0); }
-
-    .project-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; transition: opacity 0.3s; cursor: zoom-in; }
-    .project-img:hover { opacity: 0.88; }
-    .project-meta { margin-top: 14px; }
-    .project-sub { font-size: 13px; font-weight: 400; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 5px; }
-    .project-title { font-size: 15px; font-weight: 500; letter-spacing: 0.06em; }
-
-    footer { margin-top: 120px; padding: 40px 280px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #ddd; }
-    footer span { font-size: 13px; font-weight: 400; letter-spacing: 0.06em; color: var(--muted); }
-
-    @media (max-width: 900px) {
-      nav {
-        padding: 20px 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .nav-logo {
-        position: static;
-        transform: none;
-        font-size: 13px;
-        letter-spacing: 0.22em;
-      }
-      .nav-links { gap: 24px; }
-      .nav-links a { font-size: 13px; }
-      main { padding-top: 120px; }
-      .columns-wrap { grid-template-columns: 1fr; padding: 0 24px; }
-      .col-right { padding-top: 0; }
-      footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
-    }
-
-    /* ── LIGHTBOX ── */
-    #lightbox {
-      display: none; position: fixed; inset: 0; z-index: 999;
-      background: rgba(10,10,10,0.96);
-      flex-direction: column; align-items: center; justify-content: center;
-    }
-    #lightbox.open { display: flex; }
-    #lb-img-wrap { max-width: 88vw; max-height: 80vh; display: flex; align-items: center; justify-content: center; }
-    #lb-img { max-width: 100%; max-height: 80vh; object-fit: contain; opacity: 0; transition: opacity 0.3s ease; }
-    #lb-img.loaded { opacity: 1; }
-    #lb-caption { margin-top: 20px; text-align: center; }
-    #lb-sub   { font-size: 12px; letter-spacing: 0.1em; color: #888; margin-bottom: 4px; }
-    #lb-title { font-size: 14px; letter-spacing: 0.06em; color: #f0f0f0; font-weight: 500; }
-    #lb-close { position: fixed; top: 28px; right: 36px; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; opacity: 0.6; transition: opacity 0.2s; }
-    #lb-close:hover { opacity: 1; }
-    #lb-prev, #lb-next { position: fixed; top: 50%; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; opacity: 0.4; transition: opacity 0.2s; padding: 16px; }
-    #lb-prev { left: 20px; }
-    #lb-next { right: 20px; }
-    #lb-prev:hover, #lb-next:hover { opacity: 1; }
-  </style>
+  <meta name="description" content="Arthur Valente — Architectural visualization studio based in São Paulo."/>
+  <title>Arthur Valente — Architectural Visualization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css?v=7"/>
+  <link rel="preload" as="image" href="2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg"/>
+  <link rel="preload" as="image" href="2548_NOH_Among the Trees_emberatelier.com.jpg"/>
 </head>
 <body>
-  <nav>
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">ARTHUR&nbsp;&nbsp;VALENTE</a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Work</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a class="nav-logo" href="index.html">ARTHUR&nbsp;&nbsp;VALENTE</a>
   </nav>
 
-  <main>
+  <header class="intro">
+    <span class="eyebrow">Selected Work — 2022 / 2026</span>
+    <h1>Light, time,<br/>and architecture.</h1>
+  </header>
+
+  <main class="work">
     <div class="columns-wrap">
-
-      <!-- LEFT COLUMN -->
-      <div class="col col-left" id="colLeft">
-
-        <article class="project">
-          <img class="project-img" src="2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg" alt="MAC Panama Competition" style="object-position: center 60%;"/>
-          <div class="project-meta">
-            <p class="project-sub">Lieber Gal & Atelier Tek</p>
-            <p class="project-title">MAC Panama Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="OPERA IGNIS 1.jpg" alt="Opera Ignis"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed — Dubai, 2025</p>
-            <p class="project-title">Opera Ignis</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="MAGNUM OPUS 1.jpg" alt="Magnum Opus Resort Competition"/>
-          <div class="project-meta">
-            <p class="project-sub">Lieber Gal — Costa Rica</p>
-            <p class="project-title">Magnum Opus Resort Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Crimson_Shore1.jpg" alt="Mixed-Use Albania" style="object-position: center bottom;"/>
-          <div class="project-meta">
-            <p class="project-sub">Mixed-Use — Albania</p>
-            <p class="project-title">Crimson Shore</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="ForestCabin.jpg" alt="Only a Small Cabin"/>
-          <div class="project-meta">
-            <p class="project-sub">Arthur Valente & Victor Veloso</p>
-            <p class="project-title">Only a Small Cabin</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Essesi_2616_ForestAfterSnow_emberatelier.com.jpg" alt="Fallen Tree House"/>
-          <div class="project-meta">
-            <p class="project-sub">Essesi — Somewhere</p>
-            <p class="project-title">Fallen Tree House</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="MAAN TALLER.jpg" alt="Maan Taller"/>
-          <div class="project-meta">
-            <p class="project-sub">Slovakia — 2022</p>
-            <p class="project-title">Maan Taller</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Where_the_Light_Sleeps_4.jpg" alt="Undisclosed" style="object-position: center 35%;"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed — Antarctica</p>
-            <p class="project-title">Undisclosed</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="OPERA IGNIS 2.jpg" alt="Opera Ignis"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed — Dubai, 2025</p>
-            <p class="project-title">Opera Ignis</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="MAGNUM OPUS 2.jpg" alt="Magnum Opus Resort Competition"/>
-          <div class="project-meta">
-            <p class="project-sub">Lieber Gal — Costa Rica</p>
-            <p class="project-title">Magnum Opus Resort Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="BIG.DK_SP_01_cleaned.jpg" alt="Serpentine Pavilion Reimagination"/>
-          <div class="project-meta">
-            <p class="project-sub">BIG</p>
-            <p class="project-title">Serpentine Pavilion Reimagination</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Crimson_Shore8.jpg" alt="Mixed-Use Albania" style="object-position: center center;"/>
-          <div class="project-meta">
-            <p class="project-sub">Mixed-Use — Albania</p>
-            <p class="project-title">Crimson Shore</p>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div class="col col-right" id="colRight">
-
-        <article class="project">
-          <img class="project-img" src="2548_NOH_Among the Trees_emberatelier.com.jpg" alt="Not a Hotel Competition"/>
-          <div class="project-meta">
-            <p class="project-sub">Paulo Merlini Architects — 2026</p>
-            <p class="project-title">Not a Hotel Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Essesi_2616_WinterDay_Caramel_emberatelier.com.jpg" alt="Fallen Tree House"/>
-          <div class="project-meta">
-            <p class="project-sub">Essesi — Somewhere</p>
-            <p class="project-title">Fallen Tree House</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="2548_NOH_Moonlit Sanctuary_emberatelier.com.jpg" alt="Not a Hotel Competition" style="object-position: center 40%;"/>
-          <div class="project-meta">
-            <p class="project-sub">Paulo Merlini Architects — 2026</p>
-            <p class="project-title">Not a Hotel Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="IX TAPAS 1.jpg" alt="Hotel Brisa IX Tapas"/>
-          <div class="project-meta">
-            <p class="project-sub">Ricardo Legorreta — Mexico</p>
-            <p class="project-title">Hotel Brisa IX Tapas</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="2609_LieberGal_PANAMA_MAC_Exposition_op2_cleaned.jpg" alt="MAC Panama Competition"/>
-          <div class="project-meta">
-            <p class="project-sub">Lieber Gal & Atelier Tek</p>
-            <p class="project-title">MAC Panama Competition</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Where_the_Light_Sleeps_1.jpg" alt="Undisclosed" style="object-position: center 25%;"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed — Antarctica</p>
-            <p class="project-title">Undisclosed</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="ForestCabin2.jpg" alt="Only a Small Cabin"/>
-          <div class="project-meta">
-            <p class="project-sub">Arthur Valente & Victor Veloso</p>
-            <p class="project-title">Only a Small Cabin</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="IX TAPAS 2.jpg" alt="Hotel Brisa IX Tapas"/>
-          <div class="project-meta">
-            <p class="project-sub">Ricardo Legorreta — Mexico</p>
-            <p class="project-title">Hotel Brisa IX Tapas</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="MAAN TALLER 2.jpg" alt="Maan Taller"/>
-          <div class="project-meta">
-            <p class="project-sub">Slovakia — 2022</p>
-            <p class="project-title">Maan Taller</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Albania 1.jpg" alt="Residential Albania" style="object-position: center top;"/>
-          <div class="project-meta">
-            <p class="project-sub">Residential — Albania</p>
-            <p class="project-title">Undisclosed</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Museu Chines 1.jpg" alt="Chinese Museum"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed</p>
-            <p class="project-title">Chinese Museum</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Museu Chines 2.jpg" alt="Chinese Museum" style="object-position: center center;"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed</p>
-            <p class="project-title">Chinese Museum</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Albania 2.jpg" alt="Residential Albania" style="object-position: center top;"/>
-          <div class="project-meta">
-            <p class="project-sub">Residential — Albania</p>
-            <p class="project-title">Undisclosed</p>
-          </div>
-        </article>
-
-        <article class="project">
-          <img class="project-img" src="Museu Chines 3.jpg" alt="Chinese Museum" style="object-position: center 40%;"/>
-          <div class="project-meta">
-            <p class="project-sub">Undisclosed</p>
-            <p class="project-title">Chinese Museum</p>
-          </div>
-        </article>
-
-      </div>
+      <div class="col col-left" id="colLeft"></div>
+      <div class="col col-right" id="colRight"></div>
     </div>
   </main>
-
-  <div id="lightbox">
-    <button id="lb-close">&#215;</button>
-    <button id="lb-prev">&#8592;</button>
-    <button id="lb-next">&#8594;</button>
-    <div id="lb-img-wrap"><img id="lb-img" src="" alt=""/></div>
-    <div id="lb-caption">
-      <p id="lb-sub"></p>
-      <p id="lb-title"></p>
-    </div>
-  </div>
 
   <footer>
     <span>© 2025 Arthur Valente</span>
     <span>Architectural Visualization Studio</span>
   </footer>
 
+  <script src="projects.js?v=5"></script>
+  <script src="app.js?v=3"></script>
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.06 });
-    document.querySelectorAll('.project').forEach(el => observer.observe(el));
+    (function () {
+      var colLeft = document.getElementById('colLeft');
+      var colRight = document.getElementById('colRight');
 
-    // Smooth parallax com requestAnimationFrame
-    const leftItems  = document.querySelectorAll('.col-left .project');
-    const rightItems = document.querySelectorAll('.col-right .project');
-    const speed = 0.04;
-    let currentY = 0;
-    let targetY = 0;
-    let rafId = null;
-
-    window.addEventListener('scroll', () => {
-      targetY = window.scrollY;
-      if (!rafId) rafId = requestAnimationFrame(animate);
-    }, { passive: true });
-
-    function animate() {
-      currentY += (targetY - currentY) * 0.08;
-      leftItems.forEach(el  => el.style.transform = `translateY(${currentY * speed}px)`);
-      rightItems.forEach(el => el.style.transform = `translateY(${-currentY * speed}px)`);
-      if (Math.abs(targetY - currentY) > 0.5) {
-        rafId = requestAnimationFrame(animate);
-      } else {
-        rafId = null;
+      var globalIndex = 0;
+      function renderColumn(target, entries) {
+        var html = '';
+        entries.forEach(function (entry) {
+          var project = window.PROJECT_MAP[entry.slug];
+          if (!project) return;
+          var img = project.images[entry.image];
+          if (!img) return;
+          var isPriority = globalIndex < 2;
+          var loadingAttr = isPriority ? 'eager' : 'lazy';
+          var fetchAttr   = isPriority ? 'high' : 'low';
+          var positionStyle = img.position ? ' style="object-position:' + img.position + ';"' : '';
+          html +=
+            '<a class="project-card" href="project.html?slug=' + encodeURIComponent(project.slug) +
+            '" data-cursor="image" data-cursor-label="Project" data-reveal>' +
+              '<div class="card-inner">' +
+                '<div class="media">' +
+                  '<img src="' + img.src + '" alt="' + project.title + '"' +
+                    ' loading="' + loadingAttr + '" decoding="async" fetchpriority="' + fetchAttr + '"' +
+                    positionStyle + '/>' +
+                '</div>' +
+                '<div class="project-meta">' +
+                  '<p class="project-sub">' + project.client + '</p>' +
+                  '<p class="project-title">' + project.title + '</p>' +
+                '</div>' +
+              '</div>' +
+            '</a>';
+          globalIndex++;
+        });
+        target.innerHTML = html;
       }
-    }
 
-    const images = Array.from(document.querySelectorAll('.project-img'));
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lb-img');
-    const lbSub = document.getElementById('lb-sub');
-    const lbTitle = document.getElementById('lb-title');
-    let current = 0;
+      renderColumn(colLeft, window.GRID.left);
+      renderColumn(colRight, window.GRID.right);
 
-    function openLb(i) {
-      current = i;
-      const img = images[current];
-      const meta = img.closest('.project').querySelector('.project-meta');
-      lbImg.classList.remove('loaded');
-      lbImg.src = img.src;
-      lbSub.textContent = meta.querySelector('.project-sub').textContent;
-      lbTitle.textContent = meta.querySelector('.project-title').textContent;
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      lbImg.onload = () => lbImg.classList.add('loaded');
-    }
-    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-    function navigate(dir) { current = (current + dir + images.length) % images.length; openLb(current); }
+      // Re-run reveal + lazy setup for freshly inserted elements
+      var cards = document.querySelectorAll('.project-card');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    images.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
-    document.getElementById('lb-close').addEventListener('click', closeLb);
-    document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lb-next').addEventListener('click', () => navigate(1));
-    lb.addEventListener('click', e => { if (e.target === lb || e.target === document.getElementById('lb-img-wrap')) closeLb(); });
-    document.addEventListener('keydown', e => {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLb();
-      if (e.key === 'ArrowLeft') navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
-    });
+      cards.forEach(function (card, i) {
+        // Subtle staggered delay based on position in column
+        var col = card.parentElement;
+        var siblings = Array.prototype.slice.call(col.children);
+        var localIdx = siblings.indexOf(card);
+        card.style.transitionDelay = (Math.min(localIdx, 6) * 70) + 'ms';
+        io.observe(card);
+
+        var media = card.querySelector('.media');
+        var img = media.querySelector('img');
+        if (img.complete && img.naturalWidth > 0) {
+          media.classList.add('loaded');
+        } else {
+          img.addEventListener('load', function () { media.classList.add('loaded'); }, { once: true });
+          img.addEventListener('error', function () { media.classList.add('loaded'); }, { once: true });
+        }
+      });
+
+      // ────────────────────────────────────────────────────────────────────
+      // PARALLAX — left column drifts down, right column drifts up.
+      // Subtle, ~40px max offset on a long page. Lerp-smoothed.
+      // Skipped on touch devices and reduced-motion users.
+      // ────────────────────────────────────────────────────────────────────
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+      if (!prefersReduced && !isCoarse) {
+        var leftInners  = document.querySelectorAll('.col-left  .card-inner');
+        var rightInners = document.querySelectorAll('.col-right .card-inner');
+        var speed = 0.045;
+        var currentY = 0, targetY = 0, rafId = null;
+
+        function tick() {
+          currentY += (targetY - currentY) * 0.09;
+          var yLeft  = (currentY * speed).toFixed(2);
+          var yRight = (-currentY * speed).toFixed(2);
+          for (var i = 0; i < leftInners.length;  i++) leftInners[i].style.transform  = 'translate3d(0,' + yLeft  + 'px,0)';
+          for (var j = 0; j < rightInners.length; j++) rightInners[j].style.transform = 'translate3d(0,' + yRight + 'px,0)';
+          if (Math.abs(targetY - currentY) > 0.4) {
+            rafId = requestAnimationFrame(tick);
+          } else {
+            rafId = null;
+          }
+        }
+
+        window.addEventListener('scroll', function () {
+          targetY = window.scrollY;
+          if (!rafId) rafId = requestAnimationFrame(tick);
+        }, { passive: true });
+      }
+    })();
   </script>
 </body>
 </html>

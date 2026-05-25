@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project — Arthur Valente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css?v=4"/>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">ARTHUR&nbsp;&nbsp;VALENTE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <a class="project-back" href="index.html" aria-label="Back to all projects">
+    <span class="back-arrow"></span>
+    <span class="back-text">All Projects</span>
+  </a>
+
+  <article id="projectRoot">
+    <!-- Rendered dynamically based on ?slug=... -->
+  </article>
+
+  <footer>
+    <span>© 2025 Arthur Valente</span>
+    <span>Architectural Visualization Studio</span>
+  </footer>
+
+  <script src="projects.js?v=4"></script>
+  <script src="app.js?v=3"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var slug = params.get('slug');
+      var project = slug && window.PROJECT_MAP[slug];
+      var root = document.getElementById('projectRoot');
+
+      if (!project) {
+        root.innerHTML =
+          '<section style="padding:200px var(--pad-x-desktop) 100px; text-align:center;">' +
+            '<p class="project-eyebrow" style="opacity:1; transform:none; animation:none;">Project not found</p>' +
+            '<h1 class="project-h1" style="opacity:1; transform:none; animation:none; margin-top:14px;">This page does not exist.</h1>' +
+            '<p style="margin-top:28px;"><a class="project-nav-link" href="index.html"><span class="arrow"></span> Back to work</a></p>' +
+          '</section>';
+        document.title = 'Not found — Arthur Valente';
+        return;
+      }
+
+      document.title = project.title + ' — Arthur Valente';
+
+      // Determine prev / next within PROJECTS array
+      var idx = window.PROJECTS.findIndex(function (p) { return p.slug === project.slug; });
+      var prev = window.PROJECTS[(idx - 1 + window.PROJECTS.length) % window.PROJECTS.length];
+      var next = window.PROJECTS[(idx + 1) % window.PROJECTS.length];
+
+      var hero = project.images[0];
+      var heroPos = hero.position ? ' style="object-position:' + hero.position + ';"' : '';
+
+      // Build info blocks
+      function infoBlock(label, value) {
+        if (!value) return '';
+        return '<div class="info-block"><p class="info-label">' + label + '</p><p class="info-value">' + value + '</p></div>';
+      }
+
+      // Build gallery
+      var galleryHTML = '';
+      project.images.forEach(function (img, i) {
+        var pos = img.position ? ' style="object-position:' + img.position + ';"' : '';
+        var loadingAttr = i < 2 ? 'eager' : 'lazy';
+        var prio = i < 1 ? 'high' : 'low';
+        galleryHTML +=
+          '<figure class="gallery-figure" data-index="' + i + '" data-reveal>' +
+            '<div class="media" data-cursor="image" data-cursor-label="Expand">' +
+              '<img src="' + img.src + '" alt="' + project.title + (img.caption ? ' — ' + img.caption : '') + '"' +
+                ' loading="' + loadingAttr + '" decoding="async" fetchpriority="' + prio + '"' + pos + '/>' +
+            '</div>' +
+            (img.caption ? '<figcaption class="gallery-caption">' + img.caption + '</figcaption>' : '') +
+          '</figure>';
+      });
+
+      root.innerHTML =
+        '<div class="project-hero">' +
+          '<div class="media">' +
+            '<img src="' + hero.src + '" alt="' + project.title + '" loading="eager" decoding="async" fetchpriority="high"' + heroPos + '/>' +
+          '</div>' +
+        '</div>' +
+
+        '<header class="project-header">' +
+          '<div class="project-title-block">' +
+            '<p class="project-eyebrow">' + (project.type || 'Project') + ' · ' + (project.year || '') + '</p>' +
+            '<h1 class="project-h1">' + project.title + '</h1>' +
+            '<p class="project-client">' + project.client + '</p>' +
+          '</div>' +
+          '<div class="project-info">' +
+            infoBlock('Client', project.client) +
+            infoBlock('Location', project.location) +
+            infoBlock('Year', project.year) +
+            infoBlock('Type', project.type) +
+          '</div>' +
+        '</header>' +
+
+        (project.description ?
+          '<section class="project-description"><p>' + project.description + '</p></section>'
+          : '') +
+
+        '<section class="project-gallery">' + galleryHTML + '</section>' +
+
+        '<nav class="project-footer-nav">' +
+          '<a class="project-nav-link prev" href="project.html?slug=' + encodeURIComponent(prev.slug) + '">' +
+            '<span class="arrow"></span> Previous' +
+            '<span class="project-next-title">' + prev.title + '</span>' +
+          '</a>' +
+          '<a class="project-nav-link next" href="project.html?slug=' + encodeURIComponent(next.slug) + '">' +
+            'Next <span class="arrow"></span>' +
+            '<span class="project-next-title">' + next.title + '</span>' +
+          '</a>' +
+        '</nav>';
+
+      // Hook lazy load & reveal for freshly inserted elements
+      var medias = root.querySelectorAll('.media');
+      medias.forEach(function (m) {
+        var img = m.querySelector('img');
+        if (!img) return;
+        if (img.complete && img.naturalWidth > 0) {
+          m.classList.add('loaded');
+        } else {
+          img.addEventListener('load', function () { m.classList.add('loaded'); }, { once: true });
+          img.addEventListener('error', function () { m.classList.add('loaded'); }, { once: true });
+        }
+      });
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+      root.querySelectorAll('[data-reveal]').forEach(function (el, i) {
+        el.style.transitionDelay = (Math.min(i, 5) * 90) + 'ms';
+        io.observe(el);
+      });
+
+      // Lightbox wiring
+      var lbItems = project.images.map(function (img) {
+        return {
+          src: img.src,
+          title: project.title,
+          sub: project.client + (img.caption ? ' — ' + img.caption : '')
+        };
+      });
+      root.querySelectorAll('.gallery-figure .media').forEach(function (media, i) {
+        media.addEventListener('click', function () {
+          window.Lightbox.open(lbItems, i);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
