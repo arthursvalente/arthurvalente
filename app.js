@@ -28,6 +28,33 @@
     setupReveals();
     setupPageTransitions();
     setupActiveNavSubtle();
+    setupImageProtection();
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // IMAGE PROTECTION — deters casual right-click + drag downloads.
+  // Note: this is not bulletproof (anyone can grab via DevTools), but it
+  // blocks the 95% of users who'd casually right-click → save image.
+  // ─────────────────────────────────────────────────────────────────────────
+  function setupImageProtection() {
+    // Block right-click on images and image containers
+    document.addEventListener('contextmenu', function (e) {
+      var t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.tagName === 'IMG' ||
+          t.closest('.media, .lb-image-wrap, .project-hero, .gallery-figure')) {
+        e.preventDefault();
+      }
+    });
+
+    // Block drag of images
+    document.addEventListener('dragstart', function (e) {
+      var t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
   }
 
   // ─────────────────────────────────────────────────────────────────────────

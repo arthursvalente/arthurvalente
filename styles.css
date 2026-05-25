@@ -51,7 +51,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img { display: block; max-width: 100%; }
+img {
+  display: block;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS long-press save */
+  pointer-events: none; /* clicks pass to parent .media for lightbox/nav */
+}
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; background: none; border: none; cursor: pointer; color: inherit; }
 
