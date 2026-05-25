@@ -294,10 +294,26 @@
         </article>
 
         <article class="project">
+          <img class="project-img" src="Museu Chines 2.jpg" alt="Chinese Museum" style="object-position: center center;"/>
+          <div class="project-meta">
+            <p class="project-sub">Undisclosed</p>
+            <p class="project-title">Chinese Museum</p>
+          </div>
+        </article>
+
+        <article class="project">
           <img class="project-img" src="Albania 2.jpg" alt="Residential Albania" style="object-position: center top;"/>
           <div class="project-meta">
             <p class="project-sub">Residential — Albania</p>
             <p class="project-title">Undisclosed</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <img class="project-img" src="Museu Chines 3.jpg" alt="Chinese Museum" style="object-position: center 40%;"/>
+          <div class="project-meta">
+            <p class="project-sub">Undisclosed</p>
+            <p class="project-title">Chinese Museum</p>
           </div>
         </article>
 
@@ -327,16 +343,29 @@
     }, { threshold: 0.06 });
     document.querySelectorAll('.project').forEach(el => observer.observe(el));
 
-    // Parallax por imagem — esquerda desce, direita sobe
+    // Smooth parallax com requestAnimationFrame
     const leftItems  = document.querySelectorAll('.col-left .project');
     const rightItems = document.querySelectorAll('.col-right .project');
     const speed = 0.04;
+    let currentY = 0;
+    let targetY = 0;
+    let rafId = null;
 
     window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      leftItems.forEach(el  => el.style.transform = `translateY(${y * speed}px)`);
-      rightItems.forEach(el => el.style.transform = `translateY(${-y * speed}px)`);
+      targetY = window.scrollY;
+      if (!rafId) rafId = requestAnimationFrame(animate);
     }, { passive: true });
+
+    function animate() {
+      currentY += (targetY - currentY) * 0.08;
+      leftItems.forEach(el  => el.style.transform = `translateY(${currentY * speed}px)`);
+      rightItems.forEach(el => el.style.transform = `translateY(${-currentY * speed}px)`);
+      if (Math.abs(targetY - currentY) > 0.5) {
+        rafId = requestAnimationFrame(animate);
+      } else {
+        rafId = null;
+      }
+    }
 
     const images = Array.from(document.querySelectorAll('.project-img'));
     const lb = document.getElementById('lightbox');
