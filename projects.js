@@ -27,8 +27,7 @@ window.PROJECTS = [
     type: 'Hospitality',
     description: 'A confidential hospitality project where stone, fire and water orchestrate the arrival sequence. The studies focus on light at dusk and the slow reveal of the inner sanctuaries.',
     images: [
-      { src: 'OPERA IGNIS 1.jpg', caption: 'Arrival sequence' },
-      { src: 'OPERA IGNIS 2.jpg', caption: 'Inner courtyard' }
+      { src: 'OPERA IGNIS 1.jpg', caption: 'Arrival sequence' }
     ]
   },
   {
@@ -169,9 +168,24 @@ window.PROJECTS = [
     type: 'Cultural',
     description: 'A series of studies for a museum project in China. The renders trace the project through several different conditions — exterior light, interior atmosphere, and the dialogue between the two.',
     images: [
+      { src: 'Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.jpg', caption: 'Animation' },
       { src: 'Museu Chines 1.jpg', caption: 'Facade study' },
       { src: 'Museu Chines 2.jpg', position: 'center center', caption: 'Interior hall' },
-      { src: 'Museu Chines 3.jpg', position: 'center 40%', caption: 'Atrium' }
+      { src: 'Museu Chines 3.jpg', position: 'center 40%', caption: 'Atrium' },
+      { src: 'Museu Chines 4.jpg', caption: 'Landscape context' },
+      { src: 'Museu Chines 5.jpg', caption: 'Approach view' }
+    ]
+  },
+  {
+    slug: 'desert-house',
+    title: 'Desert House',
+    client: 'Undisclosed',
+    year: '2026',
+    location: 'Undisclosed',
+    type: 'Residential — Private',
+    description: 'A residence rooted in its desert landscape — corten steel volumes set against the texture of sand, stone, and palm.',
+    images: [
+      { src: 'Desert HOUSE1.jpg', caption: 'Exterior — golden hour' }
     ]
   }
 ];
@@ -191,35 +205,35 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
      Pos 2 = Right row 1      Pos 5 = Left row 3
      Pos 3 = Left row 2       Pos 6 = Right row 3
 */
+/* Note on chinese-museum indices: video added as image 0, so all
+   chinese-museum image references shifted +1 (image 5 = Museu Chines 5, etc.) */
 window.GRID = {
   left: [
-    { slug: 'not-a-hotel',          image: 0 },  // Pos 1 · forest sanctuary (flagship)
-    { slug: 'opera-ignis',          image: 0 },  // Pos 3 · Dubai exterior (flagship)
-    { slug: 'serpentine-pavilion',  image: 0 },  // Pos 5 · BIG pavilion (flagship)
-    { slug: 'magnum-opus',          image: 0 },  // Row 4
-    { slug: 'only-a-small-cabin',   image: 0 },  // Row 5
-    { slug: 'where-the-light-sleeps', image: 0 }, // Row 6
-    { slug: 'opera-ignis',          image: 1 },  // Row 7  · concert hall
-    { slug: 'albania-residential',  image: 0 },  // Row 8
-    { slug: 'magnum-opus',          image: 1 },  // Row 9  · lagoon pavilion
-    { slug: 'only-a-small-cabin',   image: 1 },  // Row 10 · window night
-    { slug: 'where-the-light-sleeps', image: 1 }, // Row 11 · interior glow
-    { slug: 'mac-panama',           image: 1 },  // Row 12 · exhibition hall
-    { slug: 'chinese-museum',       image: 2 }   // Row 13 · atrium
+    { slug: 'not-a-hotel',          image: 0 },  // Pos 1  · Among the Trees
+    { slug: 'magnum-opus',          image: 0 },  // Pos 3  · canopy view
+    { slug: 'chinese-museum',       image: 5 },  // Pos 5  · Museu Chines 5
+    { slug: 'opera-ignis',          image: 0 },  // Pos 7  · OPERA IGNIS 1
+    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 9 · Where_the_Light_Sleeps_1
+    { slug: 'mac-panama',           image: 0 },  // Pos 11 · night facade w/ moon
+    { slug: 'chinese-museum',       image: 1 },  // Pos 13 · Museu Chines 1
+    { slug: 'maan-taller',          image: 0 },  // Pos 15
+    { slug: 'where-the-light-sleeps', image: 0 }, // Pos 17 · Where_the_Light_Sleeps_4
+    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 19 · ForestCabin 2
+    { slug: 'desert-house',         image: 0 },  // Pos 21 · NEW · Desert House
+    { slug: 'albania-residential',  image: 1 }   // Pos 23 · Albania 2 (B&W)
   ],
   right: [
-    { slug: 'mac-panama',           image: 0 },  // Pos 2 · night facade w/ moon (flagship)
-    { slug: 'fallen-tree-house',    image: 0 },  // Pos 4 · snow forest (flagship)
-    { slug: 'crimson-shore',        image: 0 },  // Pos 6 · waterfront dusk (flagship)
-    { slug: 'maan-taller',          image: 0 },  // Row 4
-    { slug: 'hotel-brisa',          image: 0 },  // Row 5
-    { slug: 'chinese-museum',       image: 0 },  // Row 6  · museum facade
-    { slug: 'not-a-hotel',          image: 1 },  // Row 7  · moonlit sanctuary
-    { slug: 'fallen-tree-house',    image: 1 },  // Row 8  · winter day
-    { slug: 'crimson-shore',        image: 1 },  // Row 9  · public plaza
-    { slug: 'maan-taller',          image: 1 },  // Row 10 · living space
-    { slug: 'hotel-brisa',          image: 1 },  // Row 11 · pool corridor
-    { slug: 'chinese-museum',       image: 1 },  // Row 12 · interior hall
-    { slug: 'albania-residential',  image: 1 }   // Row 13 · golden terrace
+    { slug: 'crimson-shore',        image: 0 },  // Pos 2  · Crimson Shore 1
+    { slug: 'serpentine-pavilion',  image: 0 },  // Pos 4  · BIG pavilion
+    { slug: 'fallen-tree-house',    image: 1 },  // Pos 6  · Essesi Winter Day
+    { slug: 'only-a-small-cabin',   image: 0 },  // Pos 8  · ForestCabin
+    { slug: 'not-a-hotel',          image: 1 },  // Pos 10 · Moonlit Sanctuary
+    { slug: 'hotel-brisa',          image: 0 },  // Pos 12 · IX TAPAS 1
+    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · Crimson Shore 8
+    { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
+    { slug: 'magnum-opus',          image: 1 },  // Pos 18 · lagoon pavilion
+    { slug: 'fallen-tree-house',    image: 0 },  // Pos 20 · Essesi Forest After Snow
+    { slug: 'mac-panama',           image: 1 },  // Pos 22 · exhibition hall
+    { slug: 'albania-residential',  image: 0 }   // Pos 24 · Albania 1 (B&W bedroom)
   ]
 };

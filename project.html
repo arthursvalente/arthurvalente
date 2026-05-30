@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=8"/>
+  <link rel="stylesheet" href="styles.css?v=9"/>
 </head>
 <body>
 
@@ -34,8 +34,8 @@
     <span>Architectural Visualization Studio</span>
   </footer>
 
-  <script src="projects.js?v=6"></script>
-  <script src="app.js?v=4"></script>
+  <script src="projects.js?v=14"></script>
+  <script src="app.js?v=5"></script>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -64,32 +64,55 @@
       var hero = project.images[0];
       var heroPos = hero.position ? ' style="object-position:' + hero.position + ';"' : '';
 
+      // Detect video by file extension
+      function isVideo(src) { return /\.(mp4|webm|mov)$/i.test(src); }
+
+      // Render media element (img or video)
+      function renderMedia(item, opts) {
+        opts = opts || {};
+        var pos = item.position ? ' style="object-position:' + item.position + ';"' : '';
+        if (isVideo(item.src)) {
+          var poster = item.poster || item.src.replace(/_anim\.(mp4|webm|mov)$/i, '.jpg');
+          var posterAttr = poster ? ' poster="' + poster.replace(/"/g, '&quot;') + '"' : '';
+          return '<video src="' + item.src + '" autoplay muted loop playsinline preload="' + (opts.preload || 'auto') + '"' + posterAttr + pos + '></video>';
+        }
+        return '<img src="' + item.src + '" alt="' + (opts.alt || '') + '"' +
+          ' loading="' + (opts.loading || 'lazy') + '" decoding="async" fetchpriority="' + (opts.priority || 'low') + '"' + pos + '/>';
+      }
+
       // Build info blocks
       function infoBlock(label, value) {
         if (!value) return '';
         return '<div class="info-block"><p class="info-label">' + label + '</p><p class="info-value">' + value + '</p></div>';
       }
 
+      // Gallery shows everything EXCEPT the hero (when there are multiple images)
+      var galleryItems = project.images.length > 1 ? project.images.slice(1) : [];
+
       // Build gallery
       var galleryHTML = '';
-      project.images.forEach(function (img, i) {
-        var pos = img.position ? ' style="object-position:' + img.position + ';"' : '';
-        var loadingAttr = i < 2 ? 'eager' : 'lazy';
-        var prio = i < 1 ? 'high' : 'low';
+      galleryItems.forEach(function (img, i) {
+        var media = renderMedia(img, {
+          loading: i < 2 ? 'eager' : 'lazy',
+          priority: i < 1 ? 'high' : 'low',
+          alt: project.title + (img.caption ? ' — ' + img.caption : '')
+        });
+        var videoFlag = isVideo(img.src) ? ' data-video="1"' : '';
+        var cursorAttrs = isVideo(img.src) ? '' : ' data-cursor="image" data-cursor-label="Expand"';
         galleryHTML +=
-          '<figure class="gallery-figure" data-index="' + i + '" data-reveal>' +
-            '<div class="media" data-cursor="image" data-cursor-label="Expand">' +
-              '<img src="' + img.src + '" alt="' + project.title + (img.caption ? ' — ' + img.caption : '') + '"' +
-                ' loading="' + loadingAttr + '" decoding="async" fetchpriority="' + prio + '"' + pos + '/>' +
-            '</div>' +
+          '<figure class="gallery-figure" data-index="' + i + '"' + videoFlag + ' data-reveal>' +
+            '<div class="media"' + cursorAttrs + '>' + media + '</div>' +
             (img.caption ? '<figcaption class="gallery-caption">' + img.caption + '</figcaption>' : '') +
           '</figure>';
       });
+      var gallerySection = galleryItems.length > 0
+        ? '<section class="project-gallery">' + galleryHTML + '</section>'
+        : '';
 
       root.innerHTML =
         '<div class="project-hero">' +
           '<div class="media">' +
-            '<img src="' + hero.src + '" alt="' + project.title + '" loading="eager" decoding="async" fetchpriority="high"' + heroPos + '/>' +
+            renderMedia(hero, { loading: 'eager', priority: 'high', preload: 'auto', alt: project.title }) +
           '</div>' +
         '</div>' +
 
@@ -111,7 +134,7 @@
           '<section class="project-description"><p>' + project.description + '</p></section>'
           : '') +
 
-        '<section class="project-gallery">' + galleryHTML + '</section>' +
+        gallerySection +
 
         '<nav class="project-footer-nav">' +
           '<a class="project-nav-link prev" href="project.html?slug=' + encodeURIComponent(prev.slug) + '">' +
@@ -128,12 +151,23 @@
       var medias = root.querySelectorAll('.media');
       medias.forEach(function (m) {
         var img = m.querySelector('img');
-        if (!img) return;
-        if (img.complete && img.naturalWidth > 0) {
-          m.classList.add('loaded');
-        } else {
-          img.addEventListener('load', function () { m.classList.add('loaded'); }, { once: true });
-          img.addEventListener('error', function () { m.classList.add('loaded'); }, { once: true });
+        var video = m.querySelector('video');
+        if (img) {
+          if (img.complete && img.naturalWidth > 0) {
+            m.classList.add('loaded');
+          } else {
+            img.addEventListener('load', function () { m.classList.add('loaded'); }, { once: true });
+            img.addEventListener('error', function () { m.classList.add('loaded'); }, { once: true });
+          }
+        } else if (video) {
+          if (video.readyState >= 2) {
+            m.classList.add('loaded');
+          } else {
+            video.addEventListener('loadeddata', function () { m.classList.add('loaded'); }, { once: true });
+            video.addEventListener('error', function () { m.classList.add('loaded'); }, { once: true });
+            // Some browsers don't fire loadeddata reliably; fall back to canplay
+            video.addEventListener('canplay', function () { m.classList.add('loaded'); }, { once: true });
+          }
         }
       });
 
@@ -150,17 +184,25 @@
         io.observe(el);
       });
 
-      // Lightbox wiring
-      var lbItems = project.images.map(function (img) {
-        return {
+      // Lightbox wiring — only static images, videos are skipped
+      var lbItems = [];
+      var lbIndexByGallery = {};
+      galleryItems.forEach(function (img, i) {
+        if (isVideo(img.src)) return;
+        lbIndexByGallery[i] = lbItems.length;
+        lbItems.push({
           src: img.src,
           title: project.title,
           sub: project.client + (img.caption ? ' — ' + img.caption : '')
-        };
+        });
       });
-      root.querySelectorAll('.gallery-figure .media').forEach(function (media, i) {
+      root.querySelectorAll('.gallery-figure').forEach(function (figure, i) {
+        if (figure.hasAttribute('data-video')) return;
+        var media = figure.querySelector('.media');
         media.addEventListener('click', function () {
-          window.Lightbox.open(lbItems, i);
+          if (lbIndexByGallery[i] !== undefined) {
+            window.Lightbox.open(lbItems, lbIndexByGallery[i]);
+          }
         });
       });
     })();

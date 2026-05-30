@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=8"/>
+  <link rel="stylesheet" href="styles.css?v=9"/>
   <link rel="preload" as="image" href="2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg"/>
   <link rel="preload" as="image" href="2548_NOH_Among the Trees_emberatelier.com.jpg"/>
 </head>
@@ -40,8 +40,8 @@
     <span>Architectural Visualization Studio</span>
   </footer>
 
-  <script src="projects.js?v=6"></script>
-  <script src="app.js?v=4"></script>
+  <script src="projects.js?v=14"></script>
+  <script src="app.js?v=5"></script>
   <script>
     (function () {
       var colLeft = document.getElementById('colLeft');
@@ -122,12 +122,17 @@
         var leftInners  = document.querySelectorAll('.col-left  .card-inner');
         var rightInners = document.querySelectorAll('.col-right .card-inner');
         var speed = 0.045;
+        var maxOffset = 50;  // cap the visual offset so columns stay aligned at page edges
         var currentY = 0, targetY = 0, rafId = null;
+
+        function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
         function tick() {
           currentY += (targetY - currentY) * 0.09;
-          var yLeft  = (currentY * speed).toFixed(2);
-          var yRight = (-currentY * speed).toFixed(2);
+          var raw = currentY * speed;
+          var off = clamp(raw, -maxOffset, maxOffset);
+          var yLeft  = off.toFixed(2);
+          var yRight = (-off).toFixed(2);
           for (var i = 0; i < leftInners.length;  i++) leftInners[i].style.transform  = 'translate3d(0,' + yLeft  + 'px,0)';
           for (var j = 0; j < rightInners.length; j++) rightInners[j].style.transform = 'translate3d(0,' + yRight + 'px,0)';
           if (Math.abs(targetY - currentY) > 0.4) {
