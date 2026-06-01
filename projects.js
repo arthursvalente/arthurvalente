@@ -14,6 +14,7 @@ window.PROJECTS = [
     type: 'Cultural · Competition',
     description: 'A proposal for the new Museum of Contemporary Art of Panama City. The renders explore the dialogue between the institutional facade and the tropical light, and the quiet choreography of the exhibition halls inside.',
     images: [
+      { src: 'animation/2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned_anim_5k.webp', caption: 'Animation' },
       { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg', position: 'center 60%', caption: 'Facade, afternoon study' },
       { src: '2609_LieberGal_PANAMA_MAC_Exposition_op2_cleaned.jpg', caption: 'Exhibition hall' }
     ]
@@ -27,6 +28,7 @@ window.PROJECTS = [
     type: 'Hospitality',
     description: 'A confidential hospitality project where stone, fire and water orchestrate the arrival sequence. The studies focus on light at dusk and the slow reveal of the inner sanctuaries.',
     images: [
+      { src: 'animation/Opera Ignis 1 Anim 1 Apo8 Thf4.mp4', poster: 'OPERA IGNIS 1.jpg', caption: 'Animation' },
       { src: 'OPERA IGNIS 1.jpg', caption: 'Arrival sequence' }
     ]
   },
@@ -39,6 +41,7 @@ window.PROJECTS = [
     type: 'Hospitality · Competition',
     description: 'A resort proposal nestled within the Costa Rican rainforest. Renders trace the project from the canopy down to the lagoon, balancing the built form against the density of the landscape.',
     images: [
+      { src: 'animation/Magnum Opus 1 Anim1 1 Apo8 Thf4.mp4', poster: 'MAGNUM OPUS 1.jpg', caption: 'Animation' },
       { src: 'MAGNUM OPUS 1.jpg', caption: 'Canopy view' },
       { src: 'MAGNUM OPUS 2.jpg', caption: 'Lagoon pavilion' }
     ]
@@ -52,6 +55,7 @@ window.PROJECTS = [
     type: 'Mixed-Use',
     description: 'A mixed-use development along the Albanian coast. The studies investigate dusk atmospheres, the warmth of the local stone against the cool of the Adriatic, and the cinematic potential of a built waterfront.',
     images: [
+      { src: 'animation/Crimson Shore2_anim_5k.webp', caption: 'Animation' },
       { src: 'Crimson_Shore1.jpg', caption: 'Red plaza, daytime' },
       { src: 'Crimson_Shore8.jpg', position: 'center center', caption: 'Plaza at sunset' }
     ]
@@ -65,6 +69,7 @@ window.PROJECTS = [
     type: 'Research · Residential',
     description: 'A self-initiated study in restraint. A single cabin sitting quietly within a clearing. The renders explore the slowness of forest light and the warmth of a single window seen from outside at night.',
     images: [
+      { src: 'animation/ForestCabin_anim_5k.webp', caption: 'Animation' },
       { src: 'ForestCabin.jpg', caption: 'Exterior, winter morning' },
       { src: 'ForestCabin2.jpg', caption: 'Window, night' }
     ]
@@ -78,6 +83,7 @@ window.PROJECTS = [
     type: 'Residential',
     description: 'A house composed around a fallen tree. The visualization studies tested the project across two seasons (heavy snowfall and a softer winter day) to test how the architecture would carry its atmosphere through the year.',
     images: [
+      { src: 'animation/Essesi 2616 Forestaftersnow Emberatelier.Com Anim 1 Apo8 Thf4.mp4', poster: 'Essesi_2616_ForestAfterSnow_emberatelier.com.jpg', caption: 'Animation' },
       { src: 'Essesi_2616_ForestAfterSnow_emberatelier.com.jpg', caption: 'Forest after snow' },
       { src: 'Essesi_2616_WinterDay_Caramel_emberatelier.com.jpg', caption: 'Winter day' }
     ]
@@ -91,6 +97,7 @@ window.PROJECTS = [
     type: 'Residential',
     description: 'A pair of studies for a residential project in Slovakia. The images sit between document and dream, neither fully neutral nor overly composed.',
     images: [
+      { src: 'animation/Maan Taller Anim.mp4', poster: 'MAAN TALLER.jpg', caption: 'Animation' },
       { src: 'MAAN TALLER.jpg', caption: 'Exterior approach' },
       { src: 'MAAN TALLER 2.jpg', caption: 'Living space' }
     ]
@@ -104,6 +111,7 @@ window.PROJECTS = [
     type: 'Research · Speculative',
     description: 'A speculative study set in Antarctica. The renders sit somewhere between document and fiction, exploring how architecture might rest within an environment of nearly perpetual light.',
     images: [
+      { src: 'animation/Where The Light Sleeps 4 Anim 1 Apo8 Thf4.mp4', poster: 'Where_the_Light_Sleeps_4.jpg', caption: 'Animation' },
       { src: 'Where_the_Light_Sleeps_4.jpg', position: 'center 35%', caption: 'Polar dawn' },
       { src: 'Where_the_Light_Sleeps_1.jpg', position: 'center 25%', caption: 'Interior glow' }
     ]
@@ -117,6 +125,7 @@ window.PROJECTS = [
     type: 'Pavilion · Study',
     description: 'A reimagined visualization of the Serpentine Pavilion, exploring the pavilion within a quieter, more atmospheric light than the originals.',
     images: [
+      { src: 'animation/Big.Dk Sp 01 Cleaned Anim 1 Apo8 Thf4.mp4', poster: 'BIG.DK_SP_01_cleaned.jpg', caption: 'Animation' },
       { src: 'BIG.DK_SP_01_cleaned.jpg', caption: 'Pavilion at dusk' }
     ]
   },
@@ -129,6 +138,7 @@ window.PROJECTS = [
     type: 'Hospitality · Competition',
     description: 'A competition entry for Not a Hotel, developed with Paulo Merlini Architects. The two final images explore the project at two opposite moments: among the trees in afternoon light, and a moonlit sanctuary at night.',
     images: [
+      { src: 'animation/2548 Noh Among The Trees Emberatelier.Com Toanim Anim 1 Apo8 Thf4.mp4', poster: '2548_NOH_Among the Trees_emberatelier.com.jpg', caption: 'Animation' },
       { src: '2548_NOH_Among the Trees_emberatelier.com.jpg', caption: 'Among the trees' },
       { src: '2548_NOH_Moonlit Sanctuary_emberatelier.com.jpg', position: 'center 40%', caption: 'Moonlit sanctuary' }
     ]
@@ -142,6 +152,7 @@ window.PROJECTS = [
     type: 'Hospitality',
     description: 'Visualizations developed around the work of Ricardo Legorreta. The renders try to honour the original light: heavy, coloured, deliberate.',
     images: [
+      { src: 'animation/Ix Tapas 1 Anim 1 Apo8 Thf4.mp4', poster: 'IX TAPAS 1.jpg', caption: 'Animation' },
       { src: 'IX TAPAS 1.jpg', caption: 'Courtyard at noon' },
       { src: 'IX TAPAS 2.jpg', caption: 'Pool corridor' }
     ]
@@ -185,6 +196,7 @@ window.PROJECTS = [
     type: 'Residential · Private',
     description: 'A residence rooted in its desert landscape. Corten steel volumes set against the texture of sand, stone, and palm. Architecture and visualization by Arthur Valente.',
     images: [
+      { src: 'animation/Desert HOUSE1_anim_5k.webp', caption: 'Animation' },
       { src: 'Desert HOUSE1.jpg', caption: 'Exterior, golden hour' }
     ]
   }
@@ -207,31 +219,34 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
 */
 /* Note on chinese-museum indices: video added as image 0, so all
    chinese-museum image references shifted +1 (image 5 = Museu Chines 5, etc.) */
+/* Note: animations are at images[0] for most projects, so static-image
+   references shifted +1. chinese-museum keeps original indices (video
+   was already at [0]). albania-residential has no animation. */
 window.GRID = {
   left: [
-    { slug: 'crimson-shore',        image: 0 },  // Pos 1  · red plaza, daytime
-    { slug: 'magnum-opus',          image: 0 },  // Pos 3
+    { slug: 'crimson-shore',        image: 1 },  // Pos 1  · red plaza, daytime
+    { slug: 'magnum-opus',          image: 1 },  // Pos 3
     { slug: 'chinese-museum',       image: 5 },  // Pos 5  · Museu Chines 5
-    { slug: 'opera-ignis',          image: 0 },  // Pos 7  · OPERA IGNIS 1
-    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 9
-    { slug: 'mac-panama',           image: 0 },  // Pos 11 · night facade w/ moon
+    { slug: 'opera-ignis',          image: 1 },  // Pos 7  · OPERA IGNIS 1
+    { slug: 'where-the-light-sleeps', image: 2 }, // Pos 9
+    { slug: 'mac-panama',           image: 1 },  // Pos 11 · night facade w/ moon
     { slug: 'chinese-museum',       image: 1 },  // Pos 13 · Museu Chines 1
-    { slug: 'maan-taller',          image: 0 },  // Pos 15
-    { slug: 'where-the-light-sleeps', image: 0 }, // Pos 17
-    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 19
-    { slug: 'desert-house',         image: 0 }   // Pos 21
+    { slug: 'maan-taller',          image: 1 },  // Pos 15
+    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 17
+    { slug: 'only-a-small-cabin',   image: 2 },  // Pos 19
+    { slug: 'desert-house',         image: 1 }   // Pos 21
   ],
   right: [
-    { slug: 'not-a-hotel',          image: 0 },  // Pos 2  · forest cabin (was Pos 1)
-    { slug: 'serpentine-pavilion',  image: 0 },  // Pos 4
-    { slug: 'fallen-tree-house',    image: 1 },  // Pos 6
-    { slug: 'only-a-small-cabin',   image: 0 },  // Pos 8
-    { slug: 'not-a-hotel',          image: 1 },  // Pos 10 · Moonlit Sanctuary
-    { slug: 'hotel-brisa',          image: 0 },  // Pos 12
-    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · plaza at sunset
+    { slug: 'not-a-hotel',          image: 1 },  // Pos 2  · forest cabin
+    { slug: 'serpentine-pavilion',  image: 1 },  // Pos 4
+    { slug: 'fallen-tree-house',    image: 2 },  // Pos 6
+    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 8
+    { slug: 'not-a-hotel',          image: 2 },  // Pos 10 · Moonlit Sanctuary
+    { slug: 'hotel-brisa',          image: 1 },  // Pos 12
+    { slug: 'crimson-shore',        image: 2 },  // Pos 14 · plaza at sunset
     { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
-    { slug: 'magnum-opus',          image: 1 },  // Pos 18
-    { slug: 'fallen-tree-house',    image: 0 },  // Pos 20
-    { slug: 'mac-panama',           image: 1 }   // Pos 22 · exhibition hall
+    { slug: 'magnum-opus',          image: 2 },  // Pos 18
+    { slug: 'fallen-tree-house',    image: 1 },  // Pos 20
+    { slug: 'mac-panama',           image: 2 }   // Pos 22 · exhibition hall
   ]
 };
