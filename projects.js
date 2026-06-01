@@ -209,7 +209,7 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
    chinese-museum image references shifted +1 (image 5 = Museu Chines 5, etc.) */
 window.GRID = {
   left: [
-    { slug: 'crimson-shore',        image: 0 },  // Pos 1  · red building (flagship, daytime)
+    { slug: 'crimson-shore',        image: 0 },  // Pos 1  · red plaza, daytime
     { slug: 'magnum-opus',          image: 0 },  // Pos 3
     { slug: 'chinese-museum',       image: 5 },  // Pos 5  · Museu Chines 5
     { slug: 'opera-ignis',          image: 0 },  // Pos 7  · OPERA IGNIS 1
@@ -228,7 +228,7 @@ window.GRID = {
     { slug: 'only-a-small-cabin',   image: 0 },  // Pos 8
     { slug: 'not-a-hotel',          image: 1 },  // Pos 10 · Moonlit Sanctuary
     { slug: 'hotel-brisa',          image: 0 },  // Pos 12
-    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · dusk waterfront
+    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · plaza at sunset
     { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
     { slug: 'magnum-opus',          image: 1 },  // Pos 18
     { slug: 'fallen-tree-house',    image: 0 },  // Pos 20
