@@ -50,7 +50,7 @@
     <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=24"></script>
+  <script src="projects.js?v=25"></script>
   <script src="app.js?v=6"></script>
   <script>
     (function () {
@@ -133,8 +133,18 @@
         return '<div class="info-block"><p class="info-label">' + label + '</p><p class="info-value">' + value + '</p></div>';
       }
 
-      // Gallery shows everything EXCEPT the hero (when there are multiple images)
-      var galleryItems = project.images.length > 1 ? project.images.slice(1) : [];
+      // Gallery rules:
+      //   - Single-image project: gallery empty (hero already shows full image via .single class)
+      //   - Hero is video: gallery skips the video (already plays as hero)
+      //   - Hero is image: gallery includes ALL images so hero image appears uncropped below too
+      var galleryItems;
+      if (project.images.length === 1) {
+        galleryItems = [];
+      } else if (isVideo(project.images[0].src)) {
+        galleryItems = project.images.slice(1);
+      } else {
+        galleryItems = project.images;
+      }
 
       // Build gallery
       var galleryHTML = '';
