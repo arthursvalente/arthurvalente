@@ -29,6 +29,21 @@
     setupPageTransitions();
     setupActiveNavSubtle();
     setupImageProtection();
+    setupReducedMotionMedia();
+  }
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // REDUCED MOTION — respect users who prefer less animation.
+  // Pauses autoplay videos and shows the poster frame (or first video frame).
+  // Animated WebPs cannot be paused via JS, but their motion is subtle enough.
+  // ─────────────────────────────────────────────────────────────────────────
+  function setupReducedMotionMedia() {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      v.removeAttribute('autoplay');
+      v.removeAttribute('loop');
+      try { v.pause(); v.currentTime = 0; } catch (e) {}
+    });
   }
 
   // ─────────────────────────────────────────────────────────────────────────

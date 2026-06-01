@@ -15,11 +15,11 @@
   <meta property="og:site_name" content="Arthur Valente"/>
   <meta property="og:title" content="Project · Arthur Valente"/>
   <meta property="og:description" content="A project by Arthur Valente, digital image studio based in Brazil."/>
-  <meta property="og:image" content="https://arthurvalente.com/Crimson_Shore1.jpg"/>
+  <meta property="og:image" content="https://arthurvalente.com/Crimson_Shore1.webp"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Project · Arthur Valente"/>
   <meta name="twitter:description" content="A project by Arthur Valente, digital image studio based in Brazil."/>
-  <meta name="twitter:image" content="https://arthurvalente.com/Crimson_Shore1.jpg"/>
+  <meta name="twitter:image" content="https://arthurvalente.com/Crimson_Shore1.webp"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
@@ -50,8 +50,8 @@
     <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=27"></script>
-  <script src="app.js?v=6"></script>
+  <script src="projects.js?v=30"></script>
+  <script src="app.js?v=7"></script>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -75,8 +75,8 @@
       // Update meta tags dynamically per project (SEO + social sharing)
       var siteOrigin = 'https://arthurvalente.com';
       var heroFile = project.images[0].src;
-      // Use JPG for og:image (broader social platform support than webp)
-      var ogImage = siteOrigin + '/' + encodeURI(heroFile.replace(/_anim\.(mp4|webm|mov)$/i, '.jpg'));
+      // Hero file extension: convert any animation source to its static webp counterpart
+      var ogImage = siteOrigin + '/' + encodeURI(heroFile.replace(/_anim(?:_\dk)?\.(mp4|webm|mov|webp)$/i, '.webp'));
       var pageUrl = siteOrigin + '/project.html?slug=' + encodeURIComponent(project.slug);
       var shortDesc = (project.description || '').split('. ')[0] + (project.description ? '.' : '');
       var metaDesc = project.title + ' · ' + project.client + (project.location ? ' · ' + project.location : '') + '. ' + shortDesc;
@@ -111,22 +111,21 @@
       // Detect animated hero (video OR animated webp via _anim suffix)
       function isAnimatedMedia(src) { return isVideo(src) || /_anim/i.test(src); }
 
-      // Render media element (img wrapped in picture for WebP, or video)
+      // Respect users who prefer reduced motion
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Render media element (img or video — all images are WebP)
       function renderMedia(item, opts) {
         opts = opts || {};
         var pos = item.position ? ' style="object-position:' + item.position + ';"' : '';
         if (isVideo(item.src)) {
-          var poster = item.poster || item.src.replace(/_anim\.(mp4|webm|mov)$/i, '.jpg');
+          var poster = item.poster || item.src.replace(/_anim\.(mp4|webm|mov)$/i, '.webp');
           var posterAttr = poster ? ' poster="' + poster.replace(/"/g, '&quot;') + '"' : '';
-          var posterWebpAttr = poster ? ' data-poster-webp="' + poster.replace(/\.(jpe?g|png)$/i, '.webp').replace(/"/g, '&quot;') + '"' : '';
-          return '<video src="' + item.src + '" autoplay muted loop playsinline preload="' + (opts.preload || 'auto') + '"' + posterAttr + posterWebpAttr + pos + '></video>';
+          var motionAttrs = reducedMotion ? ' controls' : ' autoplay muted loop playsinline';
+          return '<video src="' + item.src + '"' + motionAttrs + ' preload="' + (opts.preload || 'auto') + '"' + posterAttr + pos + '></video>';
         }
-        var webpSrc = encodeURI(item.src.replace(/\.(jpe?g|png)$/i, '.webp'));
-        return '<picture>' +
-          '<source srcset="' + webpSrc + '" type="image/webp">' +
-          '<img src="' + item.src + '" alt="' + (opts.alt || '') + '"' +
-            ' loading="' + (opts.loading || 'lazy') + '" decoding="async" fetchpriority="' + (opts.priority || 'low') + '"' + pos + '/>' +
-          '</picture>';
+        return '<img src="' + item.src + '" alt="' + (opts.alt || '') + '"' +
+          ' loading="' + (opts.loading || 'lazy') + '" decoding="async" fetchpriority="' + (opts.priority || 'low') + '"' + pos + '/>';
       }
 
       // Build info blocks
@@ -151,10 +150,11 @@
       // Build gallery
       var galleryHTML = '';
       galleryItems.forEach(function (img, i) {
+        var galleryAlt = img.alt || (project.title + (img.caption ? ' · ' + img.caption : ''));
         var media = renderMedia(img, {
           loading: i < 2 ? 'eager' : 'lazy',
           priority: i < 1 ? 'high' : 'low',
-          alt: project.title + (img.caption ? ' · ' + img.caption : '')
+          alt: galleryAlt
         });
         var videoFlag = isVideo(img.src) ? ' data-video="1"' : '';
         var cursorAttrs = isVideo(img.src) ? '' : ' data-cursor="image" data-cursor-label="Expand"';

@@ -1,0 +1,21 @@
+# Local dev / Claude Code config (não precisa subir)
+.claude/
+
+# Local tools (ffmpeg, cwebp downloads — usados pelos scripts)
+animation/_tools/
+animation/optimized/
+libwebp/
+
+# Arquivos arquivados localmente (originais JPGs, imagens descartadas)
+archive/
+
+# Sistema (Windows / macOS)
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~

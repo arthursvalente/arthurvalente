@@ -14,9 +14,9 @@ window.PROJECTS = [
     type: 'Cultural · Competition',
     description: 'A proposal for the new Museum of Contemporary Art of Panama City. The renders explore the dialogue between the institutional facade and the tropical light, and the quiet choreography of the exhibition halls inside.',
     images: [
-      { src: 'animation/2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned_anim_5k.webp', caption: 'Animation' },
-      { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg', position: 'center 60%', caption: 'Facade, afternoon study' },
-      { src: '2609_LieberGal_PANAMA_MAC_Exposition_op2_cleaned.jpg', caption: 'Exhibition hall' }
+      { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned_anim_5k.webp', caption: 'Animation' },
+      { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.webp', position: 'center 60%', caption: 'Facade, afternoon study' },
+      { src: '2609_LieberGal_PANAMA_MAC_Exposition_op2_cleaned.webp', caption: 'Exhibition hall' }
     ]
   },
   {
@@ -28,8 +28,8 @@ window.PROJECTS = [
     type: 'Hospitality',
     description: 'A confidential hospitality project where stone, fire and water orchestrate the arrival sequence. The studies focus on light at dusk and the slow reveal of the inner sanctuaries.',
     images: [
-      { src: 'animation/Opera Ignis 1 Anim 1 Apo8 Thf4.mp4', poster: 'OPERA IGNIS 1.jpg', caption: 'Animation' },
-      { src: 'OPERA IGNIS 1.jpg', caption: 'Arrival sequence' }
+      { src: 'Opera Ignis 1 Anim 1 Apo8 Thf4.mp4', poster: 'OPERA IGNIS 1.webp', caption: 'Animation' },
+      { src: 'OPERA IGNIS 1.webp', caption: 'Arrival sequence' }
     ]
   },
   {
@@ -41,9 +41,9 @@ window.PROJECTS = [
     type: 'Hospitality · Competition',
     description: 'A resort proposal nestled within the Costa Rican rainforest. Renders trace the project from the canopy down to the lagoon, balancing the built form against the density of the landscape.',
     images: [
-      { src: 'animation/Magnum Opus 1 Anim1 1 Apo8 Thf4.mp4', poster: 'MAGNUM OPUS 1.jpg', caption: 'Animation' },
-      { src: 'MAGNUM OPUS 1.jpg', caption: 'Canopy view' },
-      { src: 'MAGNUM OPUS 2.jpg', caption: 'Lagoon pavilion' }
+      { src: 'Magnum Opus 1 Anim1 1 Apo8 Thf4.mp4', poster: 'MAGNUM OPUS 1.webp', caption: 'Animation' },
+      { src: 'MAGNUM OPUS 1.webp', caption: 'Canopy view', alt: 'Aerial view of a Costa Rican rainforest resort with a circular pavilion among dense canopy — Magnum Opus Resort competition by Lieber Gal' },
+      { src: 'MAGNUM OPUS 2.webp', caption: 'Lagoon pavilion' }
     ]
   },
   {
@@ -55,9 +55,9 @@ window.PROJECTS = [
     type: 'Mixed-Use',
     description: 'A mixed-use development along the Albanian coast. The studies investigate dusk atmospheres, the warmth of the local stone against the cool of the Adriatic, and the cinematic potential of a built waterfront.',
     images: [
-      { src: 'animation/Crimson Shore2_anim_5k.webp', caption: 'Animation' },
-      { src: 'Crimson_Shore1.jpg', caption: 'Red plaza, daytime' },
-      { src: 'Crimson_Shore8.jpg', position: 'center center', caption: 'Plaza at sunset' }
+      { src: 'Crimson Shore2_anim_5k.webp', caption: 'Animation' },
+      { src: 'Crimson_Shore1.webp', caption: 'Red plaza, daytime', alt: 'Bold red brutalist architecture meeting blue sea — Crimson Shore mixed-use development on the Albanian coast' },
+      { src: 'Crimson_Shore8.webp', position: 'center center', caption: 'Plaza at sunset' }
     ]
   },
   {
@@ -69,9 +69,9 @@ window.PROJECTS = [
     type: 'Research · Residential',
     description: 'A self-initiated study in restraint. A single cabin sitting quietly within a clearing. The renders explore the slowness of forest light and the warmth of a single window seen from outside at night.',
     images: [
-      { src: 'animation/ForestCabin_anim_5k.webp', caption: 'Animation' },
-      { src: 'ForestCabin.jpg', caption: 'Exterior, winter morning' },
-      { src: 'ForestCabin2.jpg', caption: 'Window, night' }
+      { src: 'ForestCabin_anim_5k.webp', caption: 'Animation' },
+      { src: 'ForestCabin.webp', caption: 'Exterior, winter morning' },
+      { src: 'ForestCabin2.webp', caption: 'Window, night' }
     ]
   },
   {
@@ -83,9 +83,9 @@ window.PROJECTS = [
     type: 'Residential',
     description: 'A house composed around a fallen tree. The visualization studies tested the project across two seasons (heavy snowfall and a softer winter day) to test how the architecture would carry its atmosphere through the year.',
     images: [
-      { src: 'animation/Essesi 2616 Forestaftersnow Emberatelier.Com Anim 1 Apo8 Thf4.mp4', poster: 'Essesi_2616_ForestAfterSnow_emberatelier.com.jpg', caption: 'Animation' },
-      { src: 'Essesi_2616_ForestAfterSnow_emberatelier.com.jpg', caption: 'Forest after snow' },
-      { src: 'Essesi_2616_WinterDay_Caramel_emberatelier.com.jpg', caption: 'Winter day' }
+      { src: 'Essesi 2616 Forestaftersnow Emberatelier.Com Anim 1 Apo8 Thf4.mp4', poster: 'Essesi_2616_ForestAfterSnow_emberatelier.com.webp', caption: 'Animation' },
+      { src: 'Essesi_2616_ForestAfterSnow_emberatelier.com.webp', caption: 'Forest after snow' },
+      { src: 'Essesi_2616_WinterDay_Caramel_emberatelier.com.webp', caption: 'Winter day', alt: 'A residence composed around a fallen tree in a snow-covered Slovak landscape — Fallen Tree House study for Essesi' }
     ]
   },
   {
@@ -97,9 +97,9 @@ window.PROJECTS = [
     type: 'Residential',
     description: 'A pair of studies for a residential project in Slovakia. The images sit between document and dream, neither fully neutral nor overly composed.',
     images: [
-      { src: 'animation/Maan Taller Anim.mp4', poster: 'MAAN TALLER.jpg', caption: 'Animation' },
-      { src: 'MAAN TALLER.jpg', caption: 'Exterior approach' },
-      { src: 'MAAN TALLER 2.jpg', caption: 'Living space' }
+      { src: 'Maan Taller Anim.mp4', poster: 'MAAN TALLER.webp', caption: 'Animation' },
+      { src: 'MAAN TALLER.webp', caption: 'Exterior approach' },
+      { src: 'MAAN TALLER 2.webp', caption: 'Living space' }
     ]
   },
   {
@@ -111,9 +111,9 @@ window.PROJECTS = [
     type: 'Research · Speculative',
     description: 'A speculative study set in Antarctica. The renders sit somewhere between document and fiction, exploring how architecture might rest within an environment of nearly perpetual light.',
     images: [
-      { src: 'animation/Where The Light Sleeps 4 Anim 1 Apo8 Thf4.mp4', poster: 'Where_the_Light_Sleeps_4.jpg', caption: 'Animation' },
-      { src: 'Where_the_Light_Sleeps_4.jpg', position: 'center 35%', caption: 'Polar dawn' },
-      { src: 'Where_the_Light_Sleeps_1.jpg', position: 'center 25%', caption: 'Interior glow' }
+      { src: 'Where The Light Sleeps 4 Anim 1 Apo8 Thf4.mp4', poster: 'Where_the_Light_Sleeps_4.webp', caption: 'Animation' },
+      { src: 'Where_the_Light_Sleeps_4.webp', position: 'center 35%', caption: 'Polar dawn' },
+      { src: 'Where_the_Light_Sleeps_1.webp', position: 'center 25%', caption: 'Interior glow' }
     ]
   },
   {
@@ -125,8 +125,8 @@ window.PROJECTS = [
     type: 'Pavilion · Study',
     description: 'A reimagined visualization of the Serpentine Pavilion, exploring the pavilion within a quieter, more atmospheric light than the originals.',
     images: [
-      { src: 'animation/Big.Dk Sp 01 Cleaned Anim 1 Apo8 Thf4.mp4', poster: 'BIG.DK_SP_01_cleaned.jpg', caption: 'Animation' },
-      { src: 'BIG.DK_SP_01_cleaned.jpg', caption: 'Pavilion at dusk' }
+      { src: 'Big.Dk Sp 01 Cleaned Anim 1 Apo8 Thf4.mp4', poster: 'BIG.DK_SP_01_cleaned.webp', caption: 'Animation' },
+      { src: 'BIG.DK_SP_01_cleaned.webp', caption: 'Pavilion at dusk', alt: 'Reimagined Serpentine Pavilion with red tiled shell over turquoise water at dusk — architectural study for BIG, Bjarke Ingels Group' }
     ]
   },
   {
@@ -138,9 +138,9 @@ window.PROJECTS = [
     type: 'Hospitality · Competition',
     description: 'A competition entry for Not a Hotel, developed with Paulo Merlini Architects. The two final images explore the project at two opposite moments: among the trees in afternoon light, and a moonlit sanctuary at night.',
     images: [
-      { src: 'animation/2548 Noh Among The Trees Emberatelier.Com Toanim Anim 1 Apo8 Thf4.mp4', poster: '2548_NOH_Among the Trees_emberatelier.com.jpg', caption: 'Animation' },
-      { src: '2548_NOH_Among the Trees_emberatelier.com.jpg', caption: 'Among the trees' },
-      { src: '2548_NOH_Moonlit Sanctuary_emberatelier.com.jpg', position: 'center 40%', caption: 'Moonlit sanctuary' }
+      { src: '2548 Noh Among The Trees Emberatelier.Com Toanim Anim 1 Apo8 Thf4.mp4', poster: '2548_NOH_Among the Trees_emberatelier.com.webp', caption: 'Animation' },
+      { src: '2548_NOH_Among the Trees_emberatelier.com.webp', caption: 'Among the trees', alt: 'Architecture nestled in deep Japanese forest with timber roof and large illuminated windows — Not a Hotel by Paulo Merlini Architects' },
+      { src: '2548_NOH_Moonlit Sanctuary_emberatelier.com.webp', position: 'center 40%', caption: 'Moonlit sanctuary' }
     ]
   },
   {
@@ -152,9 +152,9 @@ window.PROJECTS = [
     type: 'Hospitality',
     description: 'Visualizations developed around the work of Ricardo Legorreta. The renders try to honour the original light: heavy, coloured, deliberate.',
     images: [
-      { src: 'animation/Ix Tapas 1 Anim 1 Apo8 Thf4.mp4', poster: 'IX TAPAS 1.jpg', caption: 'Animation' },
-      { src: 'IX TAPAS 1.jpg', caption: 'Courtyard at noon' },
-      { src: 'IX TAPAS 2.jpg', caption: 'Pool corridor' }
+      { src: 'Ix Tapas 1 Anim 1 Apo8 Thf4.mp4', poster: 'IX TAPAS 1.webp', caption: 'Animation' },
+      { src: 'IX TAPAS 1.webp', caption: 'Courtyard at noon' },
+      { src: 'IX TAPAS 2.webp', caption: 'Pool corridor' }
     ]
   },
   {
@@ -166,8 +166,8 @@ window.PROJECTS = [
     type: 'Residential',
     description: 'A confidential residential project on the Albanian coast. The studies focus on the meeting between the rough stone of the site and the soft, settled light of the late afternoon.',
     images: [
-      { src: 'Albania 1.jpg', position: 'center top', caption: 'Hillside approach' },
-      { src: 'Albania 2.jpg', position: 'center top', caption: 'Terrace, golden hour' }
+      { src: 'Albania 1.webp', position: 'center top', caption: 'Hillside approach' },
+      { src: 'Albania 2.webp', position: 'center top', caption: 'Terrace, golden hour' }
     ]
   },
   {
@@ -179,12 +179,12 @@ window.PROJECTS = [
     type: 'Cultural',
     description: 'A series of studies for a museum project in China. The renders trace the project through several different conditions: exterior light, interior atmosphere, and the dialogue between the two.',
     images: [
-      { src: 'animation/Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.jpg', caption: 'Animation' },
-      { src: 'Museu Chines 1.jpg', caption: 'Facade study' },
-      { src: 'Museu Chines 2.jpg', position: 'center center', caption: 'Interior hall' },
-      { src: 'Museu Chines 3.jpg', position: 'center 40%', caption: 'Atrium' },
-      { src: 'Museu Chines 4.jpg', caption: 'Landscape context' },
-      { src: 'Museu Chines 5.jpg', caption: 'Approach view' }
+      { src: 'Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.webp', caption: 'Animation' },
+      { src: 'Museu Chines 1.webp', caption: 'Facade study' },
+      { src: 'Museu Chines 2.webp', position: 'center center', caption: 'Interior hall' },
+      { src: 'Museu Chines 3.webp', position: 'center 40%', caption: 'Atrium' },
+      { src: 'Museu Chines 4.webp', caption: 'Landscape context' },
+      { src: 'Museu Chines 5.webp', caption: 'Approach view', alt: 'Approach view of the Chinese Museum across a frozen landscape with low horizontal white volumes and reflecting water' }
     ]
   },
   {
@@ -196,8 +196,8 @@ window.PROJECTS = [
     type: 'Residential · Private',
     description: 'A residence rooted in its desert landscape. Corten steel volumes set against the texture of sand, stone, and palm. Architecture and visualization by Arthur Valente.',
     images: [
-      { src: 'animation/Desert HOUSE1_anim_5k.webp', caption: 'Animation' },
-      { src: 'Desert HOUSE1.jpg', caption: 'Exterior, golden hour' }
+      { src: 'Desert HOUSE1_anim_5k.webp', caption: 'Animation' },
+      { src: 'Desert HOUSE1.webp', caption: 'Exterior, golden hour' }
     ]
   }
 ];
