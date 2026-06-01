@@ -179,7 +179,7 @@ window.PROJECTS = [
     type: 'Cultural',
     description: 'A series of studies for a museum project in China. The renders trace the project through several different conditions: exterior light, interior atmosphere, and the dialogue between the two.',
     images: [
-      { src: 'Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.jpg', caption: 'Animation' },
+      { src: 'animation/Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.jpg', caption: 'Animation' },
       { src: 'Museu Chines 1.jpg', caption: 'Facade study' },
       { src: 'Museu Chines 2.jpg', position: 'center center', caption: 'Interior hall' },
       { src: 'Museu Chines 3.jpg', position: 'center 40%', caption: 'Atrium' },
