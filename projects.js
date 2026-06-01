@@ -52,8 +52,8 @@ window.PROJECTS = [
     type: 'Mixed-Use',
     description: 'A mixed-use development along the Albanian coast. The studies investigate dusk atmospheres, the warmth of the local stone against the cool of the Adriatic, and the cinematic potential of a built waterfront.',
     images: [
-      { src: 'Crimson_Shore1.jpg', position: 'center bottom', caption: 'Waterfront, dusk' },
-      { src: 'Crimson_Shore8.jpg', position: 'center center', caption: 'Public plaza' }
+      { src: 'Crimson_Shore1.jpg', caption: 'Red plaza, daytime' },
+      { src: 'Crimson_Shore8.jpg', position: 'center center', caption: 'Plaza at sunset' }
     ]
   },
   {
@@ -209,29 +209,29 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
    chinese-museum image references shifted +1 (image 5 = Museu Chines 5, etc.) */
 window.GRID = {
   left: [
-    { slug: 'not-a-hotel',          image: 0 },  // Pos 1  · Among the Trees
-    { slug: 'magnum-opus',          image: 0 },  // Pos 3  · canopy view
+    { slug: 'crimson-shore',        image: 0 },  // Pos 1  · red building (flagship, daytime)
+    { slug: 'magnum-opus',          image: 0 },  // Pos 3
     { slug: 'chinese-museum',       image: 5 },  // Pos 5  · Museu Chines 5
     { slug: 'opera-ignis',          image: 0 },  // Pos 7  · OPERA IGNIS 1
-    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 9 · Where_the_Light_Sleeps_1
+    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 9
     { slug: 'mac-panama',           image: 0 },  // Pos 11 · night facade w/ moon
     { slug: 'chinese-museum',       image: 1 },  // Pos 13 · Museu Chines 1
     { slug: 'maan-taller',          image: 0 },  // Pos 15
-    { slug: 'where-the-light-sleeps', image: 0 }, // Pos 17 · Where_the_Light_Sleeps_4
-    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 19 · ForestCabin 2
-    { slug: 'desert-house',         image: 0 }   // Pos 21 · Desert House (last on left)
+    { slug: 'where-the-light-sleeps', image: 0 }, // Pos 17
+    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 19
+    { slug: 'desert-house',         image: 0 }   // Pos 21
   ],
   right: [
-    { slug: 'crimson-shore',        image: 0 },  // Pos 2  · Crimson Shore 1
-    { slug: 'serpentine-pavilion',  image: 0 },  // Pos 4  · BIG pavilion
-    { slug: 'fallen-tree-house',    image: 1 },  // Pos 6  · Essesi Winter Day
-    { slug: 'only-a-small-cabin',   image: 0 },  // Pos 8  · ForestCabin
+    { slug: 'not-a-hotel',          image: 0 },  // Pos 2  · forest cabin (was Pos 1)
+    { slug: 'serpentine-pavilion',  image: 0 },  // Pos 4
+    { slug: 'fallen-tree-house',    image: 1 },  // Pos 6
+    { slug: 'only-a-small-cabin',   image: 0 },  // Pos 8
     { slug: 'not-a-hotel',          image: 1 },  // Pos 10 · Moonlit Sanctuary
-    { slug: 'hotel-brisa',          image: 0 },  // Pos 12 · IX TAPAS 1
-    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · Crimson Shore 8
+    { slug: 'hotel-brisa',          image: 0 },  // Pos 12
+    { slug: 'crimson-shore',        image: 1 },  // Pos 14 · dusk waterfront
     { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
-    { slug: 'magnum-opus',          image: 1 },  // Pos 18 · lagoon pavilion
-    { slug: 'fallen-tree-house',    image: 0 },  // Pos 20 · Essesi Forest After Snow
-    { slug: 'mac-panama',           image: 1 }   // Pos 22 · exhibition hall (last on right)
+    { slug: 'magnum-opus',          image: 1 },  // Pos 18
+    { slug: 'fallen-tree-house',    image: 0 },  // Pos 20
+    { slug: 'mac-panama',           image: 1 }   // Pos 22 · exhibition hall
   ]
 };

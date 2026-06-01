@@ -4,10 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project · Arthur Valente</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=13"/>
+  <link rel="stylesheet" href="styles.css?v=14"/>
 </head>
 <body>
 
@@ -34,7 +35,7 @@
     <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=16"></script>
+  <script src="projects.js?v=21"></script>
   <script src="app.js?v=6"></script>
   <script>
     (function () {
@@ -67,17 +68,22 @@
       // Detect video by file extension
       function isVideo(src) { return /\.(mp4|webm|mov)$/i.test(src); }
 
-      // Render media element (img or video)
+      // Render media element (img wrapped in picture for WebP, or video)
       function renderMedia(item, opts) {
         opts = opts || {};
         var pos = item.position ? ' style="object-position:' + item.position + ';"' : '';
         if (isVideo(item.src)) {
           var poster = item.poster || item.src.replace(/_anim\.(mp4|webm|mov)$/i, '.jpg');
           var posterAttr = poster ? ' poster="' + poster.replace(/"/g, '&quot;') + '"' : '';
-          return '<video src="' + item.src + '" autoplay muted loop playsinline preload="' + (opts.preload || 'auto') + '"' + posterAttr + pos + '></video>';
+          var posterWebpAttr = poster ? ' data-poster-webp="' + poster.replace(/\.(jpe?g|png)$/i, '.webp').replace(/"/g, '&quot;') + '"' : '';
+          return '<video src="' + item.src + '" autoplay muted loop playsinline preload="' + (opts.preload || 'auto') + '"' + posterAttr + posterWebpAttr + pos + '></video>';
         }
-        return '<img src="' + item.src + '" alt="' + (opts.alt || '') + '"' +
-          ' loading="' + (opts.loading || 'lazy') + '" decoding="async" fetchpriority="' + (opts.priority || 'low') + '"' + pos + '/>';
+        var webpSrc = encodeURI(item.src.replace(/\.(jpe?g|png)$/i, '.webp'));
+        return '<picture>' +
+          '<source srcset="' + webpSrc + '" type="image/webp">' +
+          '<img src="' + item.src + '" alt="' + (opts.alt || '') + '"' +
+            ' loading="' + (opts.loading || 'lazy') + '" decoding="async" fetchpriority="' + (opts.priority || 'low') + '"' + pos + '/>' +
+          '</picture>';
       }
 
       // Build info blocks

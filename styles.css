@@ -253,6 +253,7 @@ body.cursor-ready * { cursor: none !important; }
   100% { background-position: 200% 200%; }
 }
 
+.media picture { display: block; width: 100%; height: 100%; }
 .media img,
 .media video {
   width: 100%; height: 100%;
@@ -337,6 +338,9 @@ main.work { padding: 140px var(--pad-x-desktop) 120px; }
 .project-card .media {
   aspect-ratio: 1 / 1;
 }
+.project-card[data-aspect="wide"]  .media { aspect-ratio: 16 / 10; }
+.project-card[data-aspect="tall"]  .media { aspect-ratio: 4 / 5; }
+.project-card[data-aspect="square"] .media { aspect-ratio: 1 / 1; }
 .project-card .media img {
   transform: scale(1.001);
 }

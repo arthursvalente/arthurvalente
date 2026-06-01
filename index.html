@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Arthur Valente. A digital image studio based in Brazil."/>
   <title>Arthur Valente · Digital Image Studio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=13"/>
+  <link rel="stylesheet" href="styles.css?v=14"/>
   <link rel="preload" as="image" href="2548_NOH_Among the Trees_emberatelier.com.jpg" fetchpriority="high"/>
 </head>
 <body>
@@ -34,7 +35,7 @@
     <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=16"></script>
+  <script src="projects.js?v=21"></script>
   <script src="app.js?v=6"></script>
   <script>
     (function () {
@@ -53,14 +54,19 @@
           var loadingAttr = isPriority ? 'eager' : 'lazy';
           var fetchAttr   = isPriority ? 'high' : 'low';
           var positionStyle = img.position ? ' style="object-position:' + img.position + ';"' : '';
+          var aspectAttr = entry.aspect ? ' data-aspect="' + entry.aspect + '"' : '';
+          var webpSrc = encodeURI(img.src.replace(/\.(jpe?g|png)$/i, '.webp'));
           html +=
             '<a class="project-card" href="project.html?slug=' + encodeURIComponent(project.slug) +
-            '" data-cursor="image" data-cursor-label="" data-reveal>' +
+            '"' + aspectAttr + ' data-cursor="image" data-cursor-label="" data-reveal>' +
               '<div class="card-inner">' +
                 '<div class="media">' +
-                  '<img src="' + img.src + '" alt="' + project.title + '"' +
-                    ' loading="' + loadingAttr + '" decoding="async" fetchpriority="' + fetchAttr + '"' +
-                    positionStyle + '/>' +
+                  '<picture>' +
+                    '<source srcset="' + webpSrc + '" type="image/webp">' +
+                    '<img src="' + img.src + '" alt="' + project.title + '"' +
+                      ' loading="' + loadingAttr + '" decoding="async" fetchpriority="' + fetchAttr + '"' +
+                      positionStyle + '/>' +
+                  '</picture>' +
                 '</div>' +
                 '<div class="project-meta">' +
                   '<p class="project-sub">' + project.client + '</p>' +
@@ -115,14 +121,14 @@
       if (!prefersReduced && !isCoarse) {
         var leftInners  = document.querySelectorAll('.col-left  .card-inner');
         var rightInners = document.querySelectorAll('.col-right .card-inner');
-        var speed = 0.045;
-        var maxOffset = 50;  // cap the visual offset so columns stay aligned at page edges
+        var speed = 0.018;  // gentler — aspect ratios vary so columns aren't symmetric
+        var maxOffset = 24; // tight cap to prevent visual mis-pairing
         var currentY = 0, targetY = 0, rafId = null;
 
         function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
         function tick() {
-          currentY += (targetY - currentY) * 0.09;
+          currentY += (targetY - currentY) * 0.1;
           var raw = currentY * speed;
           var off = clamp(raw, -maxOffset, maxOffset);
           var yLeft  = off.toFixed(2);
