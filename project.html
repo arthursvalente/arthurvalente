@@ -4,11 +4,26 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project · Arthur Valente</title>
+  <meta name="description" content="A project by Arthur Valente, digital image studio based in Brazil."/>
+
+  <!-- Favicon & icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+
+  <!-- Open Graph (updated dynamically per project) -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Arthur Valente"/>
+  <meta property="og:title" content="Project · Arthur Valente"/>
+  <meta property="og:description" content="A project by Arthur Valente, digital image studio based in Brazil."/>
+  <meta property="og:image" content="https://arthurvalente.com/Crimson_Shore1.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Project · Arthur Valente"/>
+  <meta name="twitter:description" content="A project by Arthur Valente, digital image studio based in Brazil."/>
+  <meta name="twitter:image" content="https://arthurvalente.com/Crimson_Shore1.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=14"/>
+  <link rel="stylesheet" href="styles.css?v=15"/>
 </head>
 <body>
 
@@ -35,7 +50,7 @@
     <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=21"></script>
+  <script src="projects.js?v=24"></script>
   <script src="app.js?v=6"></script>
   <script>
     (function () {
@@ -56,6 +71,32 @@
       }
 
       document.title = project.title + ' · Arthur Valente';
+
+      // Update meta tags dynamically per project (SEO + social sharing)
+      var siteOrigin = 'https://arthurvalente.com';
+      var heroFile = project.images[0].src;
+      // Use JPG for og:image (broader social platform support than webp)
+      var ogImage = siteOrigin + '/' + encodeURI(heroFile.replace(/_anim\.(mp4|webm|mov)$/i, '.jpg'));
+      var pageUrl = siteOrigin + '/project.html?slug=' + encodeURIComponent(project.slug);
+      var shortDesc = (project.description || '').split('. ')[0] + (project.description ? '.' : '');
+      var metaDesc = project.title + ' · ' + project.client + (project.location ? ' · ' + project.location : '') + '. ' + shortDesc;
+
+      function setMeta(key, content) {
+        var attr = key.indexOf('og:') === 0 ? 'property' : 'name';
+        var sel = 'meta[' + attr + '="' + key + '"]';
+        var el = document.querySelector(sel);
+        if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }
+        el.setAttribute('content', content);
+      }
+
+      setMeta('description',       metaDesc);
+      setMeta('og:url',            pageUrl);
+      setMeta('og:title',          project.title + ' · Arthur Valente');
+      setMeta('og:description',    metaDesc);
+      setMeta('og:image',          ogImage);
+      setMeta('twitter:title',     project.title + ' · Arthur Valente');
+      setMeta('twitter:description', metaDesc);
+      setMeta('twitter:image',     ogImage);
 
       // Determine prev / next within PROJECTS array
       var idx = window.PROJECTS.findIndex(function (p) { return p.slug === project.slug; });
@@ -115,8 +156,9 @@
         ? '<section class="project-gallery">' + galleryHTML + '</section>'
         : '';
 
+      var heroClass = project.images.length === 1 ? ' single' : '';
       root.innerHTML =
-        '<div class="project-hero">' +
+        '<div class="project-hero' + heroClass + '">' +
           '<div class="media">' +
             renderMedia(hero, { loading: 'eager', priority: 'high', preload: 'auto', alt: project.title }) +
           '</div>' +

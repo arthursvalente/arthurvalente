@@ -179,11 +179,11 @@ window.PROJECTS = [
   {
     slug: 'desert-house',
     title: 'Desert House',
-    client: 'Undisclosed',
+    client: 'Arthur Valente',
     year: '2026',
-    location: 'Undisclosed',
+    location: 'Morocco',
     type: 'Residential · Private',
-    description: 'A residence rooted in its desert landscape. Corten steel volumes set against the texture of sand, stone, and palm.',
+    description: 'A residence rooted in its desert landscape. Corten steel volumes set against the texture of sand, stone, and palm. Architecture and visualization by Arthur Valente.',
     images: [
       { src: 'Desert HOUSE1.jpg', caption: 'Exterior, golden hour' }
     ]

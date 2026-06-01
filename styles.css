@@ -526,6 +526,31 @@ main.contact {
 .project-hero .media.loaded img,
 .project-hero .media.loaded video { transform: scale(1); }
 
+/* Single-image projects: show the full image at natural ratio, no cropping */
+.project-hero.single {
+  height: auto;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-hero.single .media,
+.project-hero.single .media picture {
+  height: auto;
+  aspect-ratio: auto;
+}
+.project-hero.single .media img,
+.project-hero.single .media video {
+  width: 100%;
+  height: auto;
+  max-height: 92vh;
+  object-fit: contain;
+  transform: none;
+  transition: opacity 0.9s var(--ease-out-expo);
+}
+.project-hero.single .media.loaded img,
+.project-hero.single .media.loaded video { transform: none; }
+.project-hero.single .media::before { display: none; }
+
 .project-header {
   padding: 80px var(--pad-x-desktop) 40px;
   display: grid;

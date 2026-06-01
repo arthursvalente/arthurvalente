@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://arthurvalente.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://arthurvalente.com/about.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://arthurvalente.com/contact.html</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Projects -->
+  <url><loc>https://arthurvalente.com/project.html?slug=mac-panama</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=opera-ignis</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=magnum-opus</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=crimson-shore</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=only-a-small-cabin</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=fallen-tree-house</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=maan-taller</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=where-the-light-sleeps</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=serpentine-pavilion</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=not-a-hotel</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=hotel-brisa</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=albania-residential</loc><priority>0.5</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=chinese-museum</loc><priority>0.7</priority></url>
+  <url><loc>https://arthurvalente.com/project.html?slug=desert-house</loc><priority>0.7</priority></url>
+</urlset>
