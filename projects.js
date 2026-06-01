@@ -11,10 +11,10 @@ window.PROJECTS = [
     client: 'Lieber Gal & Atelier Tek',
     year: '2026',
     location: 'Panama City, Panama',
-    type: 'Cultural — Competition',
+    type: 'Cultural · Competition',
     description: 'A proposal for the new Museum of Contemporary Art of Panama City. The renders explore the dialogue between the institutional facade and the tropical light, and the quiet choreography of the exhibition halls inside.',
     images: [
-      { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg', position: 'center 60%', caption: 'Facade — afternoon study' },
+      { src: '2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg', position: 'center 60%', caption: 'Facade, afternoon study' },
       { src: '2609_LieberGal_PANAMA_MAC_Exposition_op2_cleaned.jpg', caption: 'Exhibition hall' }
     ]
   },
@@ -36,7 +36,7 @@ window.PROJECTS = [
     client: 'Lieber Gal',
     year: '2026',
     location: 'Costa Rica',
-    type: 'Hospitality — Competition',
+    type: 'Hospitality · Competition',
     description: 'A resort proposal nestled within the Costa Rican rainforest. Renders trace the project from the canopy down to the lagoon, balancing the built form against the density of the landscape.',
     images: [
       { src: 'MAGNUM OPUS 1.jpg', caption: 'Canopy view' },
@@ -52,7 +52,7 @@ window.PROJECTS = [
     type: 'Mixed-Use',
     description: 'A mixed-use development along the Albanian coast. The studies investigate dusk atmospheres, the warmth of the local stone against the cool of the Adriatic, and the cinematic potential of a built waterfront.',
     images: [
-      { src: 'Crimson_Shore1.jpg', position: 'center bottom', caption: 'Waterfront — dusk' },
+      { src: 'Crimson_Shore1.jpg', position: 'center bottom', caption: 'Waterfront, dusk' },
       { src: 'Crimson_Shore8.jpg', position: 'center center', caption: 'Public plaza' }
     ]
   },
@@ -62,11 +62,11 @@ window.PROJECTS = [
     client: 'Arthur Valente & Victor Veloso',
     year: '2025',
     location: 'Self-initiated',
-    type: 'Research — Residential',
+    type: 'Research · Residential',
     description: 'A self-initiated study in restraint. A single cabin sitting quietly within a clearing. The renders explore the slowness of forest light and the warmth of a single window seen from outside at night.',
     images: [
-      { src: 'ForestCabin.jpg', caption: 'Exterior — winter morning' },
-      { src: 'ForestCabin2.jpg', caption: 'Window — night' }
+      { src: 'ForestCabin.jpg', caption: 'Exterior, winter morning' },
+      { src: 'ForestCabin2.jpg', caption: 'Window, night' }
     ]
   },
   {
@@ -76,7 +76,7 @@ window.PROJECTS = [
     year: '2026',
     location: 'Undisclosed',
     type: 'Residential',
-    description: 'A house composed around a fallen tree. The visualization studies tested the project across two seasons — heavy snowfall and a softer winter day — to test how the architecture would carry its atmosphere through the year.',
+    description: 'A house composed around a fallen tree. The visualization studies tested the project across two seasons (heavy snowfall and a softer winter day) to test how the architecture would carry its atmosphere through the year.',
     images: [
       { src: 'Essesi_2616_ForestAfterSnow_emberatelier.com.jpg', caption: 'Forest after snow' },
       { src: 'Essesi_2616_WinterDay_Caramel_emberatelier.com.jpg', caption: 'Winter day' }
@@ -89,7 +89,7 @@ window.PROJECTS = [
     year: '2023',
     location: 'Slovakia',
     type: 'Residential',
-    description: 'A pair of studies for a residential project in Slovakia. The images sit between document and dream — neither fully neutral, nor overly composed.',
+    description: 'A pair of studies for a residential project in Slovakia. The images sit between document and dream, neither fully neutral nor overly composed.',
     images: [
       { src: 'MAAN TALLER.jpg', caption: 'Exterior approach' },
       { src: 'MAAN TALLER 2.jpg', caption: 'Living space' }
@@ -101,7 +101,7 @@ window.PROJECTS = [
     client: 'Undisclosed',
     year: '2024',
     location: 'Antarctica',
-    type: 'Research — Speculative',
+    type: 'Research · Speculative',
     description: 'A speculative study set in Antarctica. The renders sit somewhere between document and fiction, exploring how architecture might rest within an environment of nearly perpetual light.',
     images: [
       { src: 'Where_the_Light_Sleeps_4.jpg', position: 'center 35%', caption: 'Polar dawn' },
@@ -111,10 +111,10 @@ window.PROJECTS = [
   {
     slug: 'serpentine-pavilion',
     title: 'Serpentine Pavilion Reimagination',
-    client: 'BIG — Bjarke Ingels Group',
+    client: 'BIG (Bjarke Ingels Group)',
     year: '2024',
     location: 'London, UK',
-    type: 'Pavilion — Study',
+    type: 'Pavilion · Study',
     description: 'A reimagined visualization of the Serpentine Pavilion, exploring the pavilion within a quieter, more atmospheric light than the originals.',
     images: [
       { src: 'BIG.DK_SP_01_cleaned.jpg', caption: 'Pavilion at dusk' }
@@ -126,8 +126,8 @@ window.PROJECTS = [
     client: 'Paulo Merlini Architects',
     year: '2026',
     location: 'Japan',
-    type: 'Hospitality — Competition',
-    description: 'A competition entry for Not a Hotel, developed with Paulo Merlini Architects. The two final images explore the project at two opposite moments — among the trees in afternoon light, and a moonlit sanctuary at night.',
+    type: 'Hospitality · Competition',
+    description: 'A competition entry for Not a Hotel, developed with Paulo Merlini Architects. The two final images explore the project at two opposite moments: among the trees in afternoon light, and a moonlit sanctuary at night.',
     images: [
       { src: '2548_NOH_Among the Trees_emberatelier.com.jpg', caption: 'Among the trees' },
       { src: '2548_NOH_Moonlit Sanctuary_emberatelier.com.jpg', position: 'center 40%', caption: 'Moonlit sanctuary' }
@@ -140,7 +140,7 @@ window.PROJECTS = [
     year: '2026',
     location: 'Mexico',
     type: 'Hospitality',
-    description: 'Visualizations developed around the work of Ricardo Legorreta. The renders try to honour the original light — heavy, coloured, deliberate.',
+    description: 'Visualizations developed around the work of Ricardo Legorreta. The renders try to honour the original light: heavy, coloured, deliberate.',
     images: [
       { src: 'IX TAPAS 1.jpg', caption: 'Courtyard at noon' },
       { src: 'IX TAPAS 2.jpg', caption: 'Pool corridor' }
@@ -149,14 +149,14 @@ window.PROJECTS = [
   {
     slug: 'albania-residential',
     title: 'Undisclosed Residential',
-    client: 'Residential — Private',
+    client: 'Residential · Private',
     year: '2024',
     location: 'Albania',
     type: 'Residential',
     description: 'A confidential residential project on the Albanian coast. The studies focus on the meeting between the rough stone of the site and the soft, settled light of the late afternoon.',
     images: [
       { src: 'Albania 1.jpg', position: 'center top', caption: 'Hillside approach' },
-      { src: 'Albania 2.jpg', position: 'center top', caption: 'Terrace — golden hour' }
+      { src: 'Albania 2.jpg', position: 'center top', caption: 'Terrace, golden hour' }
     ]
   },
   {
@@ -166,7 +166,7 @@ window.PROJECTS = [
     year: '2026',
     location: 'China',
     type: 'Cultural',
-    description: 'A series of studies for a museum project in China. The renders trace the project through several different conditions — exterior light, interior atmosphere, and the dialogue between the two.',
+    description: 'A series of studies for a museum project in China. The renders trace the project through several different conditions: exterior light, interior atmosphere, and the dialogue between the two.',
     images: [
       { src: 'Museu Chines 5_anim.mp4', poster: 'Museu Chines 5.jpg', caption: 'Animation' },
       { src: 'Museu Chines 1.jpg', caption: 'Facade study' },
@@ -182,10 +182,10 @@ window.PROJECTS = [
     client: 'Undisclosed',
     year: '2026',
     location: 'Undisclosed',
-    type: 'Residential — Private',
-    description: 'A residence rooted in its desert landscape — corten steel volumes set against the texture of sand, stone, and palm.',
+    type: 'Residential · Private',
+    description: 'A residence rooted in its desert landscape. Corten steel volumes set against the texture of sand, stone, and palm.',
     images: [
-      { src: 'Desert HOUSE1.jpg', caption: 'Exterior — golden hour' }
+      { src: 'Desert HOUSE1.jpg', caption: 'Exterior, golden hour' }
     ]
   }
 ];
@@ -219,8 +219,7 @@ window.GRID = {
     { slug: 'maan-taller',          image: 0 },  // Pos 15
     { slug: 'where-the-light-sleeps', image: 0 }, // Pos 17 · Where_the_Light_Sleeps_4
     { slug: 'only-a-small-cabin',   image: 1 },  // Pos 19 · ForestCabin 2
-    { slug: 'desert-house',         image: 0 },  // Pos 21 · NEW · Desert House
-    { slug: 'albania-residential',  image: 1 }   // Pos 23 · Albania 2 (B&W)
+    { slug: 'desert-house',         image: 0 }   // Pos 21 · Desert House (last on left)
   ],
   right: [
     { slug: 'crimson-shore',        image: 0 },  // Pos 2  · Crimson Shore 1
@@ -233,7 +232,6 @@ window.GRID = {
     { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
     { slug: 'magnum-opus',          image: 1 },  // Pos 18 · lagoon pavilion
     { slug: 'fallen-tree-house',    image: 0 },  // Pos 20 · Essesi Forest After Snow
-    { slug: 'mac-panama',           image: 1 },  // Pos 22 · exhibition hall
-    { slug: 'albania-residential',  image: 0 }   // Pos 24 · Albania 1 (B&W bedroom)
+    { slug: 'mac-panama',           image: 1 }   // Pos 22 · exhibition hall (last on right)
   ]
 };

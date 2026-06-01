@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project — Arthur Valente</title>
+  <title>Project · Arthur Valente</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=9"/>
+  <link rel="stylesheet" href="styles.css?v=13"/>
 </head>
 <body>
 
@@ -31,11 +31,11 @@
 
   <footer>
     <span>© 2026 Arthur Valente</span>
-    <span>Architectural Visualization Studio</span>
+    <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=14"></script>
-  <script src="app.js?v=5"></script>
+  <script src="projects.js?v=16"></script>
+  <script src="app.js?v=6"></script>
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -50,11 +50,11 @@
             '<h1 class="project-h1" style="opacity:1; transform:none; animation:none; margin-top:14px;">This page does not exist.</h1>' +
             '<p style="margin-top:28px;"><a class="project-nav-link" href="index.html"><span class="arrow"></span> Back to work</a></p>' +
           '</section>';
-        document.title = 'Not found — Arthur Valente';
+        document.title = 'Not found · Arthur Valente';
         return;
       }
 
-      document.title = project.title + ' — Arthur Valente';
+      document.title = project.title + ' · Arthur Valente';
 
       // Determine prev / next within PROJECTS array
       var idx = window.PROJECTS.findIndex(function (p) { return p.slug === project.slug; });
@@ -95,7 +95,7 @@
         var media = renderMedia(img, {
           loading: i < 2 ? 'eager' : 'lazy',
           priority: i < 1 ? 'high' : 'low',
-          alt: project.title + (img.caption ? ' — ' + img.caption : '')
+          alt: project.title + (img.caption ? ' · ' + img.caption : '')
         });
         var videoFlag = isVideo(img.src) ? ' data-video="1"' : '';
         var cursorAttrs = isVideo(img.src) ? '' : ' data-cursor="image" data-cursor-label="Expand"';
@@ -193,7 +193,7 @@
         lbItems.push({
           src: img.src,
           title: project.title,
-          sub: project.client + (img.caption ? ' — ' + img.caption : '')
+          sub: project.client + (img.caption ? ' · ' + img.caption : '')
         });
       });
       root.querySelectorAll('.gallery-figure').forEach(function (figure, i) {

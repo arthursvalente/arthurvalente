@@ -78,6 +78,11 @@
     var dotX = mouseX, dotY = mouseY;
     var ringX = mouseX, ringY = mouseY;
     var ready = false;
+    var rafId = null;
+
+    function scheduleTick() {
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    }
 
     document.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
@@ -86,6 +91,7 @@
         ready = true;
         document.body.classList.add('cursor-ready');
       }
+      scheduleTick();
     }, { passive: true });
 
     document.addEventListener('mouseleave', function () {
@@ -98,19 +104,20 @@
     });
 
     function tick() {
-      // dot follows quickly with subtle smoothing
+      rafId = null;
       dotX += (mouseX - dotX) * 0.85;
       dotY += (mouseY - dotY) * 0.85;
-      // ring follows with a longer lerp for elegance
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
 
       dot.style.transform = 'translate3d(' + dotX + 'px,' + dotY + 'px,0) translate(-50%,-50%)';
       ring.style.transform = 'translate3d(' + ringX + 'px,' + ringY + 'px,0) translate(-50%,-50%)';
 
-      requestAnimationFrame(tick);
+      // Keep animating only until ring catches up to mouse (dot moves fast, ring is the slow one)
+      if (Math.abs(mouseX - ringX) > 0.3 || Math.abs(mouseY - ringY) > 0.3) {
+        scheduleTick();
+      }
     }
-    requestAnimationFrame(tick);
 
     // Hover states
     document.addEventListener('mouseover', function (e) {
@@ -244,7 +251,7 @@
       e.preventDefault();
       veil.classList.add('in');
       document.body.classList.remove('loaded');
-      setTimeout(function () { window.location.href = href; }, 420);
+      setTimeout(function () { window.location.href = href; }, 300);
     });
 
     // Ensure pages restored from bfcache fade in cleanly

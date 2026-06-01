@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Arthur Valente — Architectural visualization studio based in São Paulo."/>
-  <title>Arthur Valente — Architectural Visualization</title>
+  <meta name="description" content="Arthur Valente. A digital image studio based in Brazil."/>
+  <title>Arthur Valente · Digital Image Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css?v=9"/>
-  <link rel="preload" as="image" href="2609_LieberGal_PANAMA_MAC_Facade_a3_cleaned.jpg"/>
-  <link rel="preload" as="image" href="2548_NOH_Among the Trees_emberatelier.com.jpg"/>
+  <link rel="stylesheet" href="styles.css?v=13"/>
+  <link rel="preload" as="image" href="2548_NOH_Among the Trees_emberatelier.com.jpg" fetchpriority="high"/>
 </head>
 <body>
 
@@ -23,11 +22,6 @@
     </ul>
   </nav>
 
-  <header class="intro">
-    <span class="eyebrow">Selected Work</span>
-    <h1>Light, time,<br/>and architecture.</h1>
-  </header>
-
   <main class="work">
     <div class="columns-wrap">
       <div class="col col-left" id="colLeft"></div>
@@ -37,11 +31,11 @@
 
   <footer>
     <span>© 2026 Arthur Valente</span>
-    <span>Architectural Visualization Studio</span>
+    <span>Digital Image Studio</span>
   </footer>
 
-  <script src="projects.js?v=14"></script>
-  <script src="app.js?v=5"></script>
+  <script src="projects.js?v=16"></script>
+  <script src="app.js?v=6"></script>
   <script>
     (function () {
       var colLeft = document.getElementById('colLeft');
@@ -61,7 +55,7 @@
           var positionStyle = img.position ? ' style="object-position:' + img.position + ';"' : '';
           html +=
             '<a class="project-card" href="project.html?slug=' + encodeURIComponent(project.slug) +
-            '" data-cursor="image" data-cursor-label="Project" data-reveal>' +
+            '" data-cursor="image" data-cursor-label="" data-reveal>' +
               '<div class="card-inner">' +
                 '<div class="media">' +
                   '<img src="' + img.src + '" alt="' + project.title + '"' +
@@ -98,7 +92,7 @@
         var col = card.parentElement;
         var siblings = Array.prototype.slice.call(col.children);
         var localIdx = siblings.indexOf(card);
-        card.style.transitionDelay = (Math.min(localIdx, 6) * 70) + 'ms';
+        card.style.transitionDelay = (Math.min(localIdx, 5) * 45) + 'ms';
         io.observe(card);
 
         var media = card.querySelector('.media');
