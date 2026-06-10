@@ -199,6 +199,23 @@ window.PROJECTS = [
       { src: 'Desert HOUSE1_anim_5k.webp', caption: 'Animation' },
       { src: 'Desert HOUSE1.webp', caption: 'Exterior, golden hour' }
     ]
+  },
+  {
+    slug: 'guerrilla-bay-house',
+    title: 'Guerrilla Bay House',
+    client: 'Kringas Architecture',
+    year: '2026',
+    location: 'Guerrilla Bay, Australia',
+    type: 'Residential',
+    description: 'A coastal residence by Kringas Architecture, set against the rugged landscape of Guerrilla Bay. The renders explore the dialogue between architecture, light, and the surrounding Australian bush.',
+    images: [
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_06.webp', caption: 'Approach' },
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_08.webp', caption: 'Exterior study' },
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_09.webp', caption: 'Landscape view' },
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_10.webp', caption: 'Interior, living' },
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_13.webp', caption: 'Detail study' },
+      { src: 'Kringas_Arch_GuerrillaHouse_2407_15.webp', caption: 'Twilight' }
+    ]
   }
 ];
 
@@ -234,19 +251,21 @@ window.GRID = {
     { slug: 'maan-taller',          image: 1 },  // Pos 15
     { slug: 'where-the-light-sleeps', image: 1 }, // Pos 17
     { slug: 'only-a-small-cabin',   image: 2 },  // Pos 19
-    { slug: 'desert-house',         image: 1 }   // Pos 21
+    { slug: 'desert-house',         image: 1 },  // Pos 21
+    { slug: 'guerrilla-bay-house',  image: 1 }   // Pos 23 · Guerrilla 08 (exterior study)
   ],
   right: [
-    { slug: 'not-a-hotel',          image: 1 },  // Pos 2  · forest cabin
-    { slug: 'serpentine-pavilion',  image: 1 },  // Pos 4
-    { slug: 'fallen-tree-house',    image: 2 },  // Pos 6
-    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 8
-    { slug: 'not-a-hotel',          image: 2 },  // Pos 10 · Moonlit Sanctuary
-    { slug: 'hotel-brisa',          image: 1 },  // Pos 12
-    { slug: 'crimson-shore',        image: 2 },  // Pos 14 · plaza at sunset
-    { slug: 'chinese-museum',       image: 3 },  // Pos 16 · Museu Chines 3 (atrium)
-    { slug: 'magnum-opus',          image: 2 },  // Pos 18
-    { slug: 'fallen-tree-house',    image: 1 },  // Pos 20
-    { slug: 'mac-panama',           image: 2 }   // Pos 22 · exhibition hall
+    { slug: 'guerrilla-bay-house',  image: 0 },  // Pos 2  · NEW · Guerrilla 06 (cover, after Crimson)
+    { slug: 'not-a-hotel',          image: 1 },  // Pos 4  · forest cabin
+    { slug: 'serpentine-pavilion',  image: 1 },  // Pos 6
+    { slug: 'fallen-tree-house',    image: 2 },  // Pos 8
+    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 10
+    { slug: 'not-a-hotel',          image: 2 },  // Pos 12 · Moonlit Sanctuary
+    { slug: 'hotel-brisa',          image: 1 },  // Pos 14
+    { slug: 'crimson-shore',        image: 2 },  // Pos 16 · plaza at sunset
+    { slug: 'chinese-museum',       image: 3 },  // Pos 18 · Museu Chines 3 (atrium)
+    { slug: 'magnum-opus',          image: 2 },  // Pos 20
+    { slug: 'fallen-tree-house',    image: 1 },  // Pos 22
+    { slug: 'mac-panama',           image: 2 }   // Pos 24 · exhibition hall
   ]
 };
