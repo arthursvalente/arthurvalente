@@ -325,14 +325,48 @@
       lbCounter = lb.querySelector('.lb-counter');
 
       lb.querySelector('.lb-close').addEventListener('click', close);
-      lb.querySelector('.lb-prev').addEventListener('click', function () { go(-1); });
-      lb.querySelector('.lb-next').addEventListener('click', function () { go(1); });
+      lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); go(-1); });
+      lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); go(1); });
 
       lb.addEventListener('click', function (e) {
         if (e.target === lb || e.target === lbInner || e.target.classList.contains('lb-image-wrap')) {
           close();
         }
       });
+
+      // Click-to-zoom inside the lightbox image (mouse follow for panning)
+      var zoomed = false;
+      var imgWrap = lb.querySelector('.lb-image-wrap');
+      lbImg.addEventListener('click', function (e) {
+        e.stopPropagation();
+        zoomed = !zoomed;
+        if (zoomed) {
+          imgWrap.classList.add('zoomed');
+          updateZoom(e);
+        } else {
+          imgWrap.classList.remove('zoomed');
+          lbImg.style.transform = '';
+          lbImg.style.transformOrigin = '';
+        }
+      });
+      lbImg.addEventListener('mousemove', function (e) {
+        if (zoomed) updateZoom(e);
+      });
+      function updateZoom(e) {
+        var r = lbImg.getBoundingClientRect();
+        var x = Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100));
+        var y = Math.max(0, Math.min(100, ((e.clientY - r.top) / r.height) * 100));
+        lbImg.style.transformOrigin = x + '% ' + y + '%';
+        lbImg.style.transform = 'scale(2.2)';
+      }
+      function resetZoom() {
+        zoomed = false;
+        imgWrap.classList.remove('zoomed');
+        lbImg.style.transform = '';
+        lbImg.style.transformOrigin = '';
+      }
+      // Expose so navigate/close can reset
+      lb._resetZoom = resetZoom;
 
       document.addEventListener('keydown', function (e) {
         if (!lb.classList.contains('open')) return;
@@ -373,12 +407,14 @@
 
     function close() {
       if (!lb) return;
+      if (lb._resetZoom) lb._resetZoom();
       lb.classList.remove('open');
       document.body.style.overflow = '';
     }
 
     function go(dir) {
       if (!items || !items.length) return;
+      if (lb._resetZoom) lb._resetZoom();
       current = (current + dir + items.length) % items.length;
       render();
     }
