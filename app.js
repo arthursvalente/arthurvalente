@@ -304,11 +304,13 @@
       lb.className = 'lightbox';
       lb.innerHTML =
         '<div class="lightbox-inner">' +
-          '<div class="lb-image-wrap"><img alt=""/></div>' +
-          '<div class="lb-caption">' +
-            '<p class="lb-sub"></p>' +
-            '<p class="lb-title"></p>' +
-            '<p class="lb-counter"></p>' +
+          '<div class="lb-image-wrap">' +
+            '<img alt=""/>' +
+            '<div class="lb-caption">' +
+              '<p class="lb-sub"></p>' +
+              '<p class="lb-title"></p>' +
+              '<p class="lb-counter"></p>' +
+            '</div>' +
           '</div>' +
         '</div>' +
         '<button class="lb-close" data-cursor="close" aria-label="Close"></button>' +

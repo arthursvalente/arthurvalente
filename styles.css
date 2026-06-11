@@ -690,34 +690,46 @@ main.contact {
 
 .lb-image-wrap {
   position: relative;
-  max-width: 86vw;
-  max-height: 78vh;
-  display: flex; align-items: center; justify-content: center;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: inline-block;
 }
 .lb-image-wrap img {
-  max-width: 86vw;
-  max-height: 78vh;
+  max-width: 95vw;
+  max-height: 95vh;
   object-fit: contain;
+  display: block;
   opacity: 0;
   transition: opacity 0.45s var(--ease-out-cubic);
 }
 .lb-image-wrap img.loaded { opacity: 1; }
 .lb-image-wrap.transitioning img { opacity: 0; }
 
+/* Caption overlays the bottom of the image with a subtle gradient for legibility */
 .lb-caption {
-  margin-top: 22px;
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 80px 24px 22px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
   text-align: center;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 2px 2px;
 }
 .lb-sub {
   font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: #b8b6ae;
+  color: rgba(255,255,255,0.78);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
-.lb-title { font-size: 14px; letter-spacing: 0.06em; color: #f0ede5; font-weight: 400; }
+.lb-title {
+  font-size: 14px; letter-spacing: 0.06em; color: #fff; font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
 .lb-counter {
-  margin-top: 12px;
+  margin-top: 8px;
   font-size: 10px; letter-spacing: 0.32em;
-  color: #8a8780;
+  color: rgba(255,255,255,0.55);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .lb-close, .lb-prev, .lb-next {
@@ -885,9 +897,9 @@ main.contact {
   .lb-prev::after { left: 19px; width: 8px; height: 8px; }
   .lb-next::after { right: 19px; width: 8px; height: 8px; }
   .lb-prev:hover, .lb-next:hover { transform: none; }
-  .lb-image-wrap { max-width: 92vw; max-height: 58vh; }
-  .lb-image-wrap img { max-width: 92vw; max-height: 58vh; }
-  .lb-caption { padding: 0 24px; }
+  .lb-image-wrap { max-width: 96vw; max-height: 78vh; }
+  .lb-image-wrap img { max-width: 96vw; max-height: 78vh; }
+  .lb-caption { padding: 60px 16px 14px; }
   .lb-title { font-size: 13px; }
-  .lb-counter { margin-top: 8px; }
+  .lb-counter { margin-top: 6px; }
 }
