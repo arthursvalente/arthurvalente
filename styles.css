@@ -509,47 +509,31 @@ main.contact {
 
 @keyframes backFadeIn { to { opacity: 0.85; } }
 
+/* All project-page heroes show full image (no crop) at natural aspect ratio */
 .project-hero {
   position: relative;
   width: 100%;
-  height: clamp(60vh, 78vh, 88vh);
-  margin-top: 84px;
-  overflow: hidden;
-  background: var(--bg-soft);
-}
-.project-hero .media { width: 100%; height: 100%; aspect-ratio: auto; }
-.project-hero .media img,
-.project-hero .media video {
-  transform: scale(1.06);
-  transition: opacity 0.9s var(--ease-out-expo), transform 4s var(--ease-out-expo);
-}
-.project-hero .media.loaded img,
-.project-hero .media.loaded video { transform: scale(1); }
-
-/* Single-image projects: show the full image at natural ratio, no cropping */
-.project-hero.single {
   height: auto;
   max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 84px auto 0;
+  background: var(--bg-soft);
 }
-.project-hero.single .media,
-.project-hero.single .media picture {
+.project-hero .media {
+  width: 100%;
   height: auto;
   aspect-ratio: auto;
 }
-.project-hero.single .media img,
-.project-hero.single .media video {
+.project-hero .media img,
+.project-hero .media video {
   width: 100%;
   height: auto;
   max-height: 92vh;
   object-fit: contain;
-  transform: none;
   transition: opacity 0.9s var(--ease-out-expo);
 }
-.project-hero.single .media.loaded img,
-.project-hero.single .media.loaded video { transform: none; }
-.project-hero.single .media::before { display: none; }
+.project-hero .media::before { display: none; }
+/* Kept .single as legacy alias (rendering logic still adds it for single-image projects) */
+.project-hero.single { /* same as default — kept for backward compat */ }
 
 .project-header {
   padding: 80px var(--pad-x-desktop) 40px;
@@ -629,12 +613,16 @@ main.contact {
 }
 .gallery-figure.visible { opacity: 1; transform: translateY(0); }
 .gallery-figure .media {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: auto;
   cursor: zoom-in;
 }
-.gallery-figure.tall .media { aspect-ratio: 3 / 4; max-width: 75%; margin: 0 auto; }
-.gallery-figure .media img { transition: opacity 0.7s var(--ease-out-expo), transform 1.4s var(--ease-out-expo); }
-.gallery-figure:hover .media img { transform: scale(1.025); }
+.gallery-figure .media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.7s var(--ease-out-expo), transform 1.4s var(--ease-out-expo);
+}
+.gallery-figure:hover .media img { transform: scale(1.012); }
 
 .gallery-caption {
   margin-top: 14px;
