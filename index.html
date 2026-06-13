@@ -146,40 +146,50 @@
       });
 
       // ────────────────────────────────────────────────────────────────────
-      // PARALLAX — left column drifts down, right column drifts up.
-      // Subtle, ~40px max offset on a long page. Lerp-smoothed.
-      // Skipped on touch devices and reduced-motion users.
+      // PER-CARD PARALLAX — each card has its own offset based on its
+      // position in the viewport. Left column drifts one way, right the
+      // other, but offset stays small per card (no accumulation across page).
       // ────────────────────────────────────────────────────────────────────
       var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var isCoarse = window.matchMedia('(pointer: coarse)').matches;
       if (!prefersReduced && !isCoarse) {
-        var leftInners  = document.querySelectorAll('.col-left  .card-inner');
-        var rightInners = document.querySelectorAll('.col-right .card-inner');
-        var speed = 0.018;  // gentler — aspect ratios vary so columns aren't symmetric
-        var maxOffset = 24; // tight cap to prevent visual mis-pairing
-        var currentY = 0, targetY = 0, rafId = null;
+        var leftInners  = Array.from(document.querySelectorAll('.col-left  .card-inner'));
+        var rightInners = Array.from(document.querySelectorAll('.col-right .card-inner'));
+        var maxOffset = 40;     // max ± shift per card
+        var rafId = null;
 
         function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
         function tick() {
-          currentY += (targetY - currentY) * 0.1;
-          var raw = currentY * speed;
-          var off = clamp(raw, -maxOffset, maxOffset);
-          var yLeft  = off.toFixed(2);
-          var yRight = (-off).toFixed(2);
-          for (var i = 0; i < leftInners.length;  i++) leftInners[i].style.transform  = 'translate3d(0,' + yLeft  + 'px,0)';
-          for (var j = 0; j < rightInners.length; j++) rightInners[j].style.transform = 'translate3d(0,' + yRight + 'px,0)';
-          if (Math.abs(targetY - currentY) > 0.4) {
-            rafId = requestAnimationFrame(tick);
-          } else {
-            rafId = null;
+          var vh = window.innerHeight;
+          var vhCenter = vh / 2;
+
+          for (var i = 0; i < leftInners.length; i++) {
+            var card = leftInners[i].parentElement;
+            var rect = card.getBoundingClientRect();
+            var centerY = rect.top + rect.height / 2;
+            var progress = clamp((centerY - vhCenter) / vh, -1, 1);
+            var off = (progress * maxOffset).toFixed(2);
+            leftInners[i].style.transform = 'translate3d(0,' + off + 'px,0)';
           }
+          for (var j = 0; j < rightInners.length; j++) {
+            var card2 = rightInners[j].parentElement;
+            var rect2 = card2.getBoundingClientRect();
+            var centerY2 = rect2.top + rect2.height / 2;
+            var progress2 = clamp((centerY2 - vhCenter) / vh, -1, 1);
+            var off2 = (-progress2 * maxOffset).toFixed(2);
+            rightInners[j].style.transform = 'translate3d(0,' + off2 + 'px,0)';
+          }
+          rafId = null;
         }
 
-        window.addEventListener('scroll', function () {
-          targetY = window.scrollY;
+        function schedule() {
           if (!rafId) rafId = requestAnimationFrame(tick);
-        }, { passive: true });
+        }
+
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule, { passive: true });
+        tick(); // initial position
       }
     })();
   </script>
