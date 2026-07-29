@@ -216,6 +216,19 @@ window.PROJECTS = [
       { src: 'Kringas_Arch_GuerrillaHouse_2407_13.webp', caption: 'Detail study' },
       { src: 'Kringas_Arch_GuerrillaHouse_2407_15.webp', caption: 'Twilight' }
     ]
+  },
+  {
+    slug: 'villa-t002',
+    title: 'Villa T002',
+    client: 'Marquet and Partners',
+    year: '2026',
+    location: 'Seto, Japan',
+    type: 'Residential · Private',
+    description: 'A residence for Marquet and Partners set into the boulder-strewn forest of Seto. The dark shingled roof and timber frame settle among the native canopy, following the slow shift of light through the surrounding grove.',
+    images: [
+      { src: 'Villa_T002_1.webp', caption: 'Exterior, summer', alt: 'A dark-shingled residence set into a Japanese forest with granite boulders and native undergrowth — Villa T002 by Marquet and Partners in Seto, Japan' },
+      { src: 'Villa_T002_2.webp', caption: 'Approach, morning' }
+    ]
   }
 ];
 
@@ -242,17 +255,18 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
 window.GRID = {
   left: [
     { slug: 'crimson-shore',        image: 1 },  // Pos 1  · red plaza, daytime
-    { slug: 'magnum-opus',          image: 1 },  // Pos 3
-    { slug: 'chinese-museum',       image: 5 },  // Pos 5  · Museu Chines 5
-    { slug: 'opera-ignis',          image: 1 },  // Pos 7  · OPERA IGNIS 1
-    { slug: 'where-the-light-sleeps', image: 2 }, // Pos 9
-    { slug: 'mac-panama',           image: 1 },  // Pos 11 · night facade w/ moon
-    { slug: 'chinese-museum',       image: 1 },  // Pos 13 · Museu Chines 1
-    { slug: 'maan-taller',          image: 1 },  // Pos 15
-    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 17
-    { slug: 'only-a-small-cabin',   image: 2 },  // Pos 19
-    { slug: 'desert-house',         image: 1 },  // Pos 21
-    { slug: 'guerrilla-bay-house',  image: 1 }   // Pos 23 · Guerrilla 08 (exterior study)
+    { slug: 'villa-t002',           image: 0 },  // Pos 3  · NEW · Villa T002 exterior
+    { slug: 'magnum-opus',          image: 1 },  // Pos 5
+    { slug: 'chinese-museum',       image: 5 },  // Pos 7  · Museu Chines 5
+    { slug: 'opera-ignis',          image: 1 },  // Pos 9  · OPERA IGNIS 1
+    { slug: 'where-the-light-sleeps', image: 2 }, // Pos 11
+    { slug: 'mac-panama',           image: 1 },  // Pos 13 · night facade w/ moon
+    { slug: 'chinese-museum',       image: 1 },  // Pos 15 · Museu Chines 1
+    { slug: 'maan-taller',          image: 1 },  // Pos 17
+    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 19
+    { slug: 'only-a-small-cabin',   image: 2 },  // Pos 21
+    { slug: 'desert-house',         image: 1 },  // Pos 23
+    { slug: 'guerrilla-bay-house',  image: 1 }   // Pos 25 · Guerrilla 08 (exterior study)
   ],
   right: [
     { slug: 'guerrilla-bay-house',  image: 0 },  // Pos 2  · NEW · Guerrilla 06 (cover, after Crimson)
@@ -266,6 +280,7 @@ window.GRID = {
     { slug: 'chinese-museum',       image: 3 },  // Pos 18 · Museu Chines 3 (atrium)
     { slug: 'magnum-opus',          image: 2 },  // Pos 20
     { slug: 'fallen-tree-house',    image: 1 },  // Pos 22
-    { slug: 'mac-panama',           image: 2 }   // Pos 24 · exhibition hall
+    { slug: 'mac-panama',           image: 2 },  // Pos 24 · exhibition hall
+    { slug: 'villa-t002',           image: 1 }   // Pos 26 · NEW · Villa T002 approach
   ]
 };
