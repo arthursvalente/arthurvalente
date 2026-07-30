@@ -224,10 +224,19 @@ window.PROJECTS = [
     year: '2026',
     location: 'Seto, Japan',
     type: 'Residential · Private',
-    description: 'A residence for Marquet and Partners set into the boulder-strewn forest of Seto. The dark shingled roof and timber frame settle among the native canopy, following the slow shift of light through the surrounding grove.',
+    description: 'A private residence for Marquet and Partners on the Seto Inland Sea. A curved bamboo-and-timber shell settles between forest and shoreline — dappled interior light opening to mountains, mist and turquoise water.',
     images: [
-      { src: 'Villa_T002_1.webp', caption: 'Exterior, summer', alt: 'A dark-shingled residence set into a Japanese forest with granite boulders and native undergrowth — Villa T002 by Marquet and Partners in Seto, Japan' },
-      { src: 'Villa_T002_2.webp', caption: 'Approach, morning' }
+      { src: 'Villa_T002_1.webp', caption: 'Pavilion, front', alt: 'A curved bamboo-and-timber pavilion set on the Seto Inland Sea coast, with mountains and turquoise water — Villa T002 by Marquet and Partners in Seto, Japan' },
+      { src: 'Villa_T002_2.webp', caption: 'Aerial approach' },
+      { src: 'Villa_T002_3.webp', caption: 'Cove' },
+      { src: 'Villa_T002_4.webp', caption: 'Beach' },
+      { src: 'Villa_T002_5.webp', caption: 'Dusk' },
+      { src: 'Villa_T002_6.webp', caption: 'Interior arch' },
+      { src: 'Villa_T002_7.webp', caption: 'Coast' },
+      { src: 'Villa_T002_8.webp', caption: 'Dining' },
+      { src: 'Villa_T002_9.webp', caption: 'Lounge' },
+      { src: 'Villa_T002_10.webp', caption: 'Interior study' },
+      { src: 'Villa_T002_11.webp', caption: 'Landscape' }
     ]
   }
 ];
