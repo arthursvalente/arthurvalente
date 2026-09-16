@@ -218,6 +218,45 @@ window.PROJECTS = [
     ]
   },
   {
+    slug: 'neom-underwater',
+    title: 'NEOM Underwater',
+    client: 'Undisclosed',
+    year: '2023',
+    location: 'Saudi Arabia',
+    type: 'Hospitality',
+    description: 'A hospitality proposal for NEOM — a rippled photovoltaic canopy that crosses from the red desert dune to the reef edge. The renders trace the structure through two thresholds: a quiet oasis at dawn and a diver approaching the coral shelf offshore.',
+    images: [
+      { src: 'NEOM_Underwater_1.webp', caption: 'Oasis, morning', alt: 'A rippled photovoltaic canopy resting over the dunes beside a desert oasis, with a rider on camelback in the foreground — NEOM Underwater project in Saudi Arabia' },
+      { src: 'NEOM_Underwater_2.webp', caption: 'Reef edge' }
+    ]
+  },
+  {
+    slug: 'meridian-tower',
+    title: 'Meridian Tower',
+    client: 'Undisclosed',
+    year: '2026',
+    location: 'South Asia',
+    type: 'Mixed-use',
+    description: 'A mixed-use tower proposal for a South Asian metropolis. The renders trace the building through the haze of two thresholds — the quiet ritual of a riverside plaza at dawn, and a silhouette rising into the density of the surrounding skyline.',
+    images: [
+      { src: 'Meridian_Tower_1.webp', caption: 'Silhouette, haze' },
+      { src: 'Meridian_Tower_2.webp', caption: 'Riverside approach' }
+    ]
+  },
+  {
+    slug: 'threshold',
+    title: 'Threshold',
+    client: 'Arthur Valente',
+    year: '2026',
+    location: 'Brazil',
+    type: 'Cultural',
+    description: 'A cultural project crossing between two worlds — an underground mineral sanctuary carved into the rock, and a light pavilion resting in the landscape above. The renders trace the threshold between surface and deep.',
+    images: [
+      { src: 'Threshold_1.webp', caption: 'Ember', alt: 'A vast cave chamber lit by deep red light, with reflective water and mineral pedestals in the distance — Threshold cultural project by Arthur Valente in Brazil' },
+      { src: 'Threshold_2.webp', caption: 'Outcrop' }
+    ]
+  },
+  {
     slug: 'villa-t002',
     title: 'Villa T002',
     client: 'Marquet and Partners',
@@ -264,32 +303,38 @@ window.PROJECT_MAP = window.PROJECTS.reduce(function (map, project) {
 window.GRID = {
   left: [
     { slug: 'crimson-shore',        image: 1 },  // Pos 1  · red plaza, daytime
-    { slug: 'villa-t002',           image: 0 },  // Pos 3  · NEW · Villa T002 exterior
-    { slug: 'magnum-opus',          image: 1 },  // Pos 5
-    { slug: 'chinese-museum',       image: 5 },  // Pos 7  · Museu Chines 5
-    { slug: 'opera-ignis',          image: 1 },  // Pos 9  · OPERA IGNIS 1
-    { slug: 'where-the-light-sleeps', image: 2 }, // Pos 11
-    { slug: 'mac-panama',           image: 1 },  // Pos 13 · night facade w/ moon
-    { slug: 'chinese-museum',       image: 1 },  // Pos 15 · Museu Chines 1
-    { slug: 'maan-taller',          image: 1 },  // Pos 17
-    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 19
-    { slug: 'only-a-small-cabin',   image: 2 },  // Pos 21
-    { slug: 'desert-house',         image: 1 },  // Pos 23
-    { slug: 'guerrilla-bay-house',  image: 1 }   // Pos 25 · Guerrilla 08 (exterior study)
+    { slug: 'villa-t002',           image: 0 },  // Pos 3  · Villa T002 exterior
+    { slug: 'neom-underwater',      image: 0 },  // Pos 5  · NEW · Oasis morning
+    { slug: 'meridian-tower',       image: 0 },  // Pos 7  · NEW · Silhouette, haze
+    { slug: 'threshold',            image: 0 },  // Pos 9  · NEW · Ember cave
+    { slug: 'magnum-opus',          image: 1 },  // Pos 11
+    { slug: 'chinese-museum',       image: 5 },  // Pos 13 · Museu Chines 5
+    { slug: 'opera-ignis',          image: 1 },  // Pos 15 · OPERA IGNIS 1
+    { slug: 'where-the-light-sleeps', image: 2 }, // Pos 17
+    { slug: 'mac-panama',           image: 1 },  // Pos 19 · night facade w/ moon
+    { slug: 'chinese-museum',       image: 1 },  // Pos 21 · Museu Chines 1
+    { slug: 'maan-taller',          image: 1 },  // Pos 23
+    { slug: 'where-the-light-sleeps', image: 1 }, // Pos 25
+    { slug: 'only-a-small-cabin',   image: 2 },  // Pos 27
+    { slug: 'desert-house',         image: 1 },  // Pos 29
+    { slug: 'guerrilla-bay-house',  image: 1 }   // Pos 31 · Guerrilla 08 (exterior study)
   ],
   right: [
-    { slug: 'guerrilla-bay-house',  image: 0 },  // Pos 2  · NEW · Guerrilla 06 (cover, after Crimson)
+    { slug: 'guerrilla-bay-house',  image: 0 },  // Pos 2  · Guerrilla 06 (cover, after Crimson)
     { slug: 'not-a-hotel',          image: 1 },  // Pos 4  · forest cabin
-    { slug: 'serpentine-pavilion',  image: 1 },  // Pos 6
-    { slug: 'fallen-tree-house',    image: 2 },  // Pos 8
-    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 10
-    { slug: 'not-a-hotel',          image: 2 },  // Pos 12 · Moonlit Sanctuary
-    { slug: 'hotel-brisa',          image: 1 },  // Pos 14
-    { slug: 'crimson-shore',        image: 2 },  // Pos 16 · plaza at sunset
-    { slug: 'chinese-museum',       image: 3 },  // Pos 18 · Museu Chines 3 (atrium)
-    { slug: 'magnum-opus',          image: 2 },  // Pos 20
-    { slug: 'fallen-tree-house',    image: 1 },  // Pos 22
-    { slug: 'mac-panama',           image: 2 },  // Pos 24 · exhibition hall
-    { slug: 'villa-t002',           image: 1 }   // Pos 26 · NEW · Villa T002 approach
+    { slug: 'neom-underwater',      image: 1 },  // Pos 6  · NEW · Reef edge
+    { slug: 'meridian-tower',       image: 1 },  // Pos 8  · NEW · Riverside approach
+    { slug: 'threshold',            image: 1 },  // Pos 10 · NEW · Outcrop landscape
+    { slug: 'serpentine-pavilion',  image: 1 },  // Pos 12
+    { slug: 'fallen-tree-house',    image: 2 },  // Pos 14
+    { slug: 'only-a-small-cabin',   image: 1 },  // Pos 16
+    { slug: 'not-a-hotel',          image: 2 },  // Pos 18 · Moonlit Sanctuary
+    { slug: 'hotel-brisa',          image: 1 },  // Pos 20
+    { slug: 'crimson-shore',        image: 2 },  // Pos 22 · plaza at sunset
+    { slug: 'chinese-museum',       image: 3 },  // Pos 24 · Museu Chines 3 (atrium)
+    { slug: 'magnum-opus',          image: 2 },  // Pos 26
+    { slug: 'fallen-tree-house',    image: 1 },  // Pos 28
+    { slug: 'mac-panama',           image: 2 },  // Pos 30 · exhibition hall
+    { slug: 'villa-t002',           image: 1 }   // Pos 32 · Villa T002 approach
   ]
 };
